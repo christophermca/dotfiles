@@ -1,0 +1,8 @@
+#!/bin/sh
+
+set editing-mode vi
+set keymap vi-command
+set keyseq-timeout 1
+set bell-style none
+set show-mode-in-prompt on
+v: ""

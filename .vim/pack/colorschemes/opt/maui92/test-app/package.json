@@ -1,0 +1,33 @@
+{
+  "name": "maui-92",
+  "version": "1.0.0",
+  "description": "vim colorscheme",
+  "main": "index.js",
+  "repository": "https://github.com/christophermca/maui-92.git",
+  "author": "Christopher MCAdams <mca.christopher@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "build": "webpack -p"
+  },
+  "devtool": "inline-source-map",
+  "devServer": {
+    "port": 3000
+  },
+  "stylintrc": {
+    "sortOrder": "alphabetical"
+  },
+  "devDependencies": {
+    "css-loader": "^1.0.1",
+    "style-loader": "^0.23.1",
+    "stylint": "^1.5.9",
+    "stylus": "^0.54.5",
+    "stylus-loader": "^3.0.2",
+    "webpack": "^4.25.1",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.10"
+  },
+  "dependencies": {
+    "prettier": "^1.15.2"
+  }
+}

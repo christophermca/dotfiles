@@ -1,0 +1,100 @@
+$colors = json('./color-directory.json', {hash: true}).base
+$raw-colors = json('./color-directory.json', {hash: true})
+
+html, body
+  height: 100%
+  margin: 0
+  padding: 0
+  width: 100%
+
+body
+  background-color: $raw-colors['dark']['bg']
+  color: $raw-colors['light']['bg']
+  height:100%
+  width: 100%
+
+  &.toggle-lumin
+    background-color: $raw-colors['light']['bg']
+    color: $raw-colors['dark']['bg']
+
+  .theme
+    display: flex
+    position: absolute
+    flex-direction: column
+    justify-content: space-around
+    height: 100%
+    width: 100%
+    z-index: 1
+
+    & .color-block
+      height: 70px
+
+    .color-1
+      .color-block
+        background: $colors['1']
+      .text-block
+        color: $colors['1']
+
+    .color-2
+      .color-block
+        background: $colors['2']
+
+      .text-block
+        color: $colors['2']
+
+    .color-3
+      .color-block
+        background: $colors['3']
+
+      .text-block
+        color: $colors['3']
+
+    .color-4
+      .color-block
+        background: $colors['4']
+
+      .text-block
+        color: $colors['4']
+
+    .color-5
+      .color-block
+        background: $colors['5']
+
+      .text-block
+        color: $colors['5']
+
+
+    ~/.toggle-lumin .theme
+      .color-1
+        .color-block
+          background: $raw-colors['light']['1']
+
+        .text-block
+          color: $raw-colors['light']['1']
+
+      .color-2
+        .color-block
+          background: $raw-colors['light']['2']
+
+        .text-block
+          color: $raw-colors['light']['2']
+
+      .color-3
+        .color-block
+          background: $raw-colors['light']['3']
+
+        .text-block
+          color: $raw-colors['light']['3']
+
+      .color-4
+        .color-block
+          background: $raw-colors['light']['4']
+
+        .text-block
+          color: $raw-colors['light']['4']
+      .color-5
+        .color-block
+          background: $raw-colors['light']['5']
+
+        .text-block
+          color: $raw-colors['light']['5']
