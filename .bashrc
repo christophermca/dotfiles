@@ -72,9 +72,11 @@ match_lhs=""
       fi
 
       if [[ ${EUID} == 0 ]] ; then
+        echo 'test'
         PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$(__git_ps1) \n$\[\033[00m\] '
       else
         PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\e[0m$(__git_ps1 "\n [\e[96m%s\e[0m]") \$\[\033[00m\] '
+
       fi
 
       alias ls='ls --color=auto'
@@ -146,6 +148,9 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 
 
 #}}}
+
+[[ -f /usr/share/git/completion/git-completion.bash ]] && source /usr/share/git/completion/git-completion.bash
+[[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
 
 ###
 # ALIASES

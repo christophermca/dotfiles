@@ -15,6 +15,7 @@
    unstage = reset HEAD --
 [help]
    browser = chrome
+	autocorrect = 1
 [core]
   editory = vim
   fileMode = false

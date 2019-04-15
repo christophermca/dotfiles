@@ -3,8 +3,6 @@
 #
 
 [[ -f ~/.fzf.bash ]] && source ~/.fzf.bash
-[[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
-[[ -f /usr/share/git/completion/git-completion.bash ]] && source /usr/share/git/completion/git-completion.bash
 
 GIT_PS1_SHOWUPSTREAM=""
 GIT_PS1_STATESEPARATOR=":"

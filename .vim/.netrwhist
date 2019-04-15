@@ -1,6 +1,9 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
+let g:netrw_dirhist_cnt =7
 let g:netrw_dirhist_1='/home/christophermca/Repos/dotfiles'
 let g:netrw_dirhist_2='/home/christophermca/Repos'
 let g:netrw_dirhist_3='/home/christophermca'
 let g:netrw_dirhist_4='/home/christophermca/.config'
+let g:netrw_dirhist_5='/home/christophermca'
+let g:netrw_dirhist_6='/home'
+let g:netrw_dirhist_7='/home/christophermca'
