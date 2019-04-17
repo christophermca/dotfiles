@@ -20,8 +20,7 @@ export PATH="/usr/bin:/usr/sbin:/bin:/sbin"
 export PATH="$HOME/.rbenv/shims:/usr/local/bin:/usr/bin:/bin:~/bin:$PATH"
 export PATH="./node_modules/.bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin:$PATH"
-
+export PATH="$HOME/.gem/ruby/2.6.0/bin/:$PATH"
 #RBENV
 if command -v rbenv > /dev/null ; then
 	eval "$(rbenv init - --no-rehash)"
