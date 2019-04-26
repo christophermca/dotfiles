@@ -82,3 +82,6 @@
 [submodule ".vim/pack/opt/mca/python-syntax"]
 	path = .vim/pack/opt/mca/python-syntax
 	url = git@github.com:vim-python/python-syntax.git
+[submodule ".vim/pack/opt/mca/pylint"]
+	path = .vim/pack/opt/mca/pylint
+	url = git@github.com:vim-scripts/pylint.vim.git
