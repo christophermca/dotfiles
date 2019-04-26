@@ -76,3 +76,9 @@
 [submodule ".vim/pack/mca/start/xterm-color-table.vim"]
 	path = .vim/pack/mca/start/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim
+[submodule ".vim/pack/mca/opt/pythoncomplete"]
+	path = .vim/pack/mca/opt/pythoncomplete
+	url = git@github.com:vim-scripts/pythoncomplete.git
+[submodule ".vim/pack/opt/mca/python-syntax"]
+	path = .vim/pack/opt/mca/python-syntax
+	url = git@github.com:vim-python/python-syntax.git
