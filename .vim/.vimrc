@@ -31,7 +31,7 @@ colorscheme meta5
 set cursorline
 
 " node suffix help
-set suffixesadd=.coffee,.js,.jsx,.ts,.tsx,.styl,.css
+set suffixesadd=.js,.jsx,.ts,.tsx,.styl,.css
 
 " fix slow escape in iterm2
 set ttimeout
@@ -59,6 +59,7 @@ set ttimeoutlen=20
    autocmd!
    au bufread,bufnewfile *.cson set filetype=coffee
    au bufread,bufnewfile *.json set filetype=json
+   au bufread,bufnewfile *.styl set filetype=stylus
  augroup END
 "}}}
 " FONTS  {{{
@@ -232,24 +233,24 @@ nnoremap <A-x> <C-x>
 
 " Copy/paste to system clipboard
 vmap <leader>y "*y
-vmap <leader>yy "+yy
-vmap <leader>Y "+Y
-vmap <leader>yw "+yw
-vmap <leader>yb "+yb
-vmap <leader>D "+D
+vmap <leader>yy "*yy
+vmap <leader>Y "*Y
+vmap <leader>yw "*yw
+vmap <leader>yb "*yb
+vmap <leader>D "*D
 vmap <leader>p "*p
 vmap <leader>P "*P
 
-nmap <leader>y "+y<cr>
-nmap <leader>yy "+yy<cr>
-nmap <leader>Y "+Y<cr>
-nmap <leader>yw "+yw<cr>
-nmap <leader>yb "+yb<cr>
-nmap <leader>D "+D<cr>
-nmap <leader>p "+p<cr>
-nmap <leader>P "+P<cr>
+nmap <leader>y "*y<cr>
+nmap <leader>yy "*yy<cr>
+nmap <leader>Y "*Y<cr>
+nmap <leader>yw "*yw<cr>
+nmap <leader>yb "*yb<cr>
+nmap <leader>D "*D<cr>
+nmap <leader>p "*p<cr>
+nmap <leader>P "*P<cr>
 
-nmap <leader>cp :let @+ = expand("%")<cr>
+nmap <leader>cp :let @* = expand("%")<cr>
 
 
 map <leader>ag :Ack<Space>

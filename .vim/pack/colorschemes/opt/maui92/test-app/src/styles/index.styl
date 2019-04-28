@@ -1,5 +1,5 @@
-$colors = json('./color-directory.json', {hash: true}).base
-$raw-colors = json('./color-directory.json', {hash: true})
+$colors = json('../color-directory.json', {hash: true}).dark
+$raw-colors = json('../color-directory.json', {hash: true})
 
 html, body
   height: 100%
@@ -64,7 +64,7 @@ body
         color: $colors['5']
 
 
-    ~/.toggle-lumin .theme
+    .toggle-lumin .theme
       .color-1
         .color-block
           background: $raw-colors['light']['1']
