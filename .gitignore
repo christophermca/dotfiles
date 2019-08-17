@@ -10,3 +10,4 @@
 !.tmux.conf
 !.inputrc
 !.workrc
+./vim/.netrwhist
