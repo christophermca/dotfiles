@@ -10,4 +10,5 @@
 !.tmux.conf
 !.inputrc
 !.workrc
-./vim/.netrwhist
+.vim/.netrwhist
+.vim/pack

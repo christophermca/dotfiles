@@ -79,9 +79,9 @@
 [submodule ".vim/pack/mca/opt/pythoncomplete"]
 	path = .vim/pack/mca/opt/pythoncomplete
 	url = git@github.com:vim-scripts/pythoncomplete.git
-[submodule ".vim/pack/opt/mca/python-syntax"]
-	path = .vim/pack/opt/mca/python-syntax
+[submodule ".vim/pack/mca/opt/python-syntax"]
+	path = .vim/pack/mca/opt/python-syntax
 	url = git@github.com:vim-python/python-syntax.git
-[submodule ".vim/pack/opt/mca/pylint"]
-	path = .vim/pack/opt/mca/pylint
+[submodule ".vim/pack/mca/opt/pylint"]
+	path = .vim/pack/mca/opt/pylint
 	url = git@github.com:vim-scripts/pylint.vim.git
