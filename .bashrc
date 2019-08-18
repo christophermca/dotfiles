@@ -72,9 +72,19 @@ match_lhs=""
       fi
 
       if [[ ${EUID} == 0 ]] ; then
-        PS1='\[\033[01;31m\][\h\[\033[01;36m\] \W\[\033[01;31m\]]\$(__git_ps1) \n$\[\033[00m\] '
+        # root
+        PS1='\e[01;31m]\h\e[01;36m] \W\[\e[01;31m\]]\$(__git_ps1) \n$\[\e[00m\] '
       else
-        PS1='\[\033[01;32m\][\u@\h\[\033[01;37m\] \W\[\033[01;32m\]]\e[0m$(__git_ps1 "\n [\e[96m%s\e[0m]") \$\[\033[00m\] '
+        RESET="\e[m";
+        BLUE="\e[01;34m\]";
+        GREY="\e[02;37m\]";
+
+        CURRENT_PATH="$GREY\w$RESET";
+        COMPNAME="$RESET❲$BLUE\h$RESET";
+        GIT_INFO="\$(__git_ps1 ' ⁞ %s')";
+        END=" \$ ";
+
+        PS1="$CURRENT_PATH\n$COMPNAME$GIT_INFO❳\n$END"
 
       fi
 
@@ -221,6 +231,7 @@ attach() {
   if type "tmux" > /dev/null; then
 
     local SESSION=$1
+    #TODO should I convert to unix code \e[00m or use tput?
     local readonly GREEN=$(tput setaf 2)
     local readonly NORMAL=$(tput sgr0)
 
