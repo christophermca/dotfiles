@@ -73,18 +73,19 @@ match_lhs=""
 
       if [[ ${EUID} == 0 ]] ; then
         # root
-        PS1='\e[01;31m]\h\e[01;36m] \W\[\e[01;31m\]]\$(__git_ps1) \n$\[\e[00m\] '
+        PS1="\e[31;40m❲\u@\h❳\e[0m \w \e[0m\n \$ "
       else
         RESET="\e[m";
-        BLUE="\e[01;34m\]";
-        GREY="\e[02;37m\]";
+        BLUE="\e[1;34m\]";
+        GREY="\e[2;37m\]";
+        COLOR1="\e[0;33m\]"
 
         CURRENT_PATH="$GREY\w$RESET";
-        COMPNAME="$RESET❲$BLUE\h$RESET";
-        GIT_INFO="\$(__git_ps1 ' ⁞ %s')";
+        COMPNAME="$RESET$BLUE\h$RESET";
+        GIT_INFO="\$(__git_ps1 '|$COLOR1%s$RESET')";
         END=" \$ ";
 
-        PS1="$CURRENT_PATH\n$COMPNAME$GIT_INFO❳\n$END"
+        PS1="❲$COMPNAME$GIT_INFO❳ $CURRENT_PATH\n$END"
 
       fi
 

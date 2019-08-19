@@ -11,4 +11,4 @@
 !.inputrc
 !.workrc
 .vim/.netrwhist
-.vim/pack
+.vim/pack/**/*
