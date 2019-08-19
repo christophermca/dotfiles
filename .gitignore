@@ -7,6 +7,7 @@
 !.gitignore
 !.gitconfig
 !.gitmodules
+!.github
 !.tmux.conf
 !.inputrc
 !.workrc
