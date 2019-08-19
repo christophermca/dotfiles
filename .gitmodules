@@ -85,3 +85,9 @@
 [submodule ".vim/pack/mca/opt/pylint"]
 	path = .vim/pack/mca/opt/pylint
 	url = git@github.com:vim-scripts/pylint.vim.git
+[submodule ".vim/pack/mca/opt/vim-jsx"]
+	path = .vim/pack/mca/opt/vim-jsx
+	url = git@github.com:mxw/vim-jsx.git
+[submodule ".vim/pack/colorschemes/start/meta5"]
+	path = .vim/pack/colorschemes/start/meta5
+	url = git@github.com:christophermca/meta5.git
