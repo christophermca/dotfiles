@@ -77,13 +77,13 @@
 
 
 
-[submodule ".vim/pack/mca/opt/vim-jsx"]
+[submodule "vim-jsx"]
 	path = .vim/pack/mca/opt/vim-jsx
 	url = git@github.com:mxw/vim-jsx.git
-[submodule ".vim/pack/colorschemes/start/meta5"]
+[submodule "meta5"]
 	path = .vim/pack/colorschemes/start/meta5
 	url = git@github.com:christophermca/meta5.git
-[submodule ".vim/pack/mca/opt/ultisnips"]
+[submodule "ultisnips"]
 	path = .vim/pack/mca/opt/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
 [submodule "ale"]
