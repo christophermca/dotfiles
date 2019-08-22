@@ -83,15 +83,6 @@
 [submodule ".vim/pack/colorschemes/start/meta5"]
 	path = .vim/pack/colorschemes/start/meta5
 	url = git@github.com:christophermca/meta5.git
-[submodule ".vim/pack/mca/start/SimpyFold"]
-	path = .vim/pack/mca/start/SimpyFold
-	url = https://github.com/tmhedberg/SimpylFold.git
 [submodule ".vim/pack/mca/opt/ultisnips"]
 	path = .vim/pack/mca/opt/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
-[submodule ".vim/pack/mca/start/YouCompleteMe"]
-	path = .vim/pack/mca/start/YouCompleteMe
-	url = https://github.com/Valloric/YouCompleteMe.git
-[submodule ".vim/pack/mca/start/ack.vim"]
-	path = .vim/pack/mca/start/ack.vim
-	url = https://github.com/mileszs/ack.vim.git
