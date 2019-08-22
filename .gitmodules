@@ -1,73 +1,3 @@
-[submodule ".vim/pack/mca/start/emmet-vim"]
-	path = .vim/pack/mca/start/emmet-vim
-	url = https://github.com/mattn/emmet-vim.git
-[submodule "vim-dispatch"]
-	path = .vim/pack/mca/start/vim-dispatch
-	url = https://github.com/tpope/vim-dispatch.git
-[submodule "vim-fugitive"]
-	path = .vim/pack/mca/start/vim-fugitive
-	url = https://github.com/tpope/vim-fugitive.git
-[submodule "vim-surround"]
-	path = .vim/pack/mca/start/vim-surround
-	url = https://github.com/tpope/vim-surround.git
-[submodule "fzf"]
-	path = .vim/pack/mca/start/fzf.vim
-	url = https://github.com/junegunn/fzf.vim.git
-
-[submodule ".vim/pack/mca/opt/vim-coffee-script"]
-	path = .vim/pack/mca/opt/vim-coffee-script
-	url = https://github.com/kchmck/vim-coffee-script.git
-[submodule ".vim/pack/mca/opt/vim-flake8"]
-	path = .vim/pack/mca/opt/vim-flake8
-	url = https://github.com/nvie/vim-flake8.git
-[submodule ".vim/pack/mca/opt/vim-json"]
-	path = .vim/pack/mca/opt/vim-json
-	url = https://github.com/elzr/vim-json.git
-[submodule ".vim/pack/mca/opt/vim-mustache-handlebars"]
-	path = .vim/pack/mca/opt/vim-mustache-handlebars
-	url = https://github.com/mustache/vim-mustache-handlebars.git
-[submodule ".vim/pack/mca/opt/vim-ruby"]
-	path = .vim/pack/mca/opt/vim-ruby
-	url = https://github.com/vim-ruby/vim-ruby.git
-[submodule ".vim/pack/mca/opt/vim-stylus"]
-	path = .vim/pack/mca/opt/vim-stylus
-	url = https://github.com/vim-scripts/vim-stylus.git
-[submodule ".vim/pack/mca/opt/vim-javascript-syntax"]
-	path = .vim/pack/mca/opt/vim-javascript-syntax
-	url = https://github.com/jelera/vim-javascript-syntax
-[submodule ".vim/pack/mca/opt/typescript-vim"]
-	path = .vim/pack/mca/opt/typescript-vim
-	url = https://github.com/leafgarland/typescript-vim.git
-[submodule ".vim/pack/mca/opt/tsuquyomi"]
-	path = .vim/pack/mca/opt/tsuquyomi
-	url = https://github.com/Quramy/tsuquyomi.git
-
-[submodule ".vim/pack/mca/start/xterm-color-table"]
-	path = .vim/pack/mca/start/xterm-color-table.vim
-	url = https://github.com/guns/xterm-color-table.vim.git
-
-[submodule ".vim/pack/mca/opt/vim-HiLinkTrace"]
-	path = .vim/pack/mca/opt/vim-HiLinkTrace
-	url = https://github.com/gerw/vim-HiLinkTrace.git
-[submodule ".vim/pack/colorschemes/opt/maui92"]
-	path = .vim/pack/colorschemes/opt/maui92
-	url = https://github.com/christophermca/maui92.git
-[submodule ".vim/pack/mca/start/xterm-color-table.vim"]
-	path = .vim/pack/mca/start/xterm-color-table.vim
-	url = https://github.com/guns/xterm-color-table.vim.git
-[submodule ".vim/pack/mca/opt/pythoncomplete"]
-	path = .vim/pack/mca/opt/pythoncomplete
-	url = git@github.com:vim-scripts/pythoncomplete.git
-[submodule ".vim/pack/mca/opt/python-syntax"]
-	path = .vim/pack/mca/opt/python-syntax
-	url = git@github.com:vim-python/python-syntax.git
-[submodule ".vim/pack/mca/opt/pylint"]
-	path = .vim/pack/mca/opt/pylint
-	url = git@github.com:vim-scripts/pylint.vim.git
-
-
-
-
 [submodule "vim-jsx"]
 	path = .vim/pack/mca/opt/vim-jsx
 	url = git@github.com:mxw/vim-jsx.git
@@ -86,3 +16,77 @@
 [submodule "vim-commentary"]
 	path = .vim/pack/mca/start/vim-commentary
 	url = https://github.com/tpope/vim-commentary.git
+[submodule "vim-dispatch"]
+	path = .vim/pack/mca/start/vim-dispatch
+	url = https://github.com/tpope/vim-dispatch.git
+[submodule "vim-fugitive"]
+	path = .vim/pack/mca/start/vim-fugitive
+	url = https://github.com/tpope/vim-fugitive.git
+[submodule "vim-surround"]
+	path = .vim/pack/mca/start/vim-surround
+	url = https://github.com/tpope/vim-surround.git
+[submodule "fzf"]
+	path = .vim/pack/mca/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim.git
+[submodule "xterm-color-table"]
+	path = .vim/pack/mca/start/xterm-color-table.vim
+	url = https://github.com/guns/xterm-color-table.vim.git
+
+
+
+
+[submodule "emmet-vim"]
+	path = .vim/pack/mca/opt/emmet-vim
+	url = https://github.com/mattn/emmet-vim.git
+[submodule "vim-coffee-script"]
+	path = .vim/pack/mca/opt/vim-coffee-script
+	url = https://github.com/kchmck/vim-coffee-script.git
+[submodule "vim-flake8"]
+	path = .vim/pack/mca/opt/vim-flake8
+	url = https://github.com/nvie/vim-flake8.git
+[submodule "vim-json"]
+	path = .vim/pack/mca/opt/vim-json
+	url = https://github.com/elzr/vim-json.git
+[submodule "vim-mustache-handlebars"]
+	path = .vim/pack/mca/opt/vim-mustache-handlebars
+	url = https://github.com/mustache/vim-mustache-handlebars.git
+[submodule "vim-ruby"]
+	path = .vim/pack/mca/opt/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "vim-stylus"]
+	path = .vim/pack/mca/opt/vim-stylus
+	url = https://github.com/vim-scripts/vim-stylus.git
+[submodule "vim-javascript-syntax"]
+	path = .vim/pack/mca/opt/vim-javascript-syntax
+	url = https://github.com/jelera/vim-javascript-syntax
+[submodule "typescript-vim"]
+	path = .vim/pack/mca/opt/typescript-vim
+	url = https://github.com/leafgarland/typescript-vim.git
+[submodule "tsuquyomi"]
+	path = .vim/pack/mca/opt/tsuquyomi
+	url = https://github.com/Quramy/tsuquyomi.git
+[submodule ".vim/pack/mca/opt/tsuquyomi"]
+	path = .vim/pack/mca/opt/tsuquyomi
+	url = https://github.com/Quramy/tsuquyomi.git
+[submodule ".vim/pack/mca/opt/maui92"]
+	path = .vim/pack/mca/opt/maui92
+	url = https://github.com/christophermca/maui92.git
+[submodule ".vim/pack/mca/opt/pylint.vim"]
+	path = .vim/pack/mca/opt/pylint.vim
+	url = git@github.com:vim-scripts/pylint.vim.git
+[submodule "vim-HiLinkTrace"]
+	path = .vim/pack/mca/opt/vim-HiLinkTrace
+	url = https://github.com/gerw/vim-HiLinkTrace.git
+[submodule "maui92"]
+	path = .vim/pack/colorschemes/opt/maui92
+	url = https://github.com/christophermca/maui92.git
+[submodule "pythoncomplete"]
+	path = .vim/pack/mca/opt/pythoncomplete
+	url = git@github.com:vim-scripts/pythoncomplete.git
+[submodule "python-syntax"]
+	path = .vim/pack/mca/opt/python-syntax
+	url = git@github.com:vim-python/python-syntax.git
+[submodule "pylint"]
+	path = .vim/pack/mca/opt/pylint
+	url = git@github.com:vim-scripts/pylint.vim.git
+
