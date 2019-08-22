@@ -1,25 +1,16 @@
 [submodule ".vim/pack/mca/start/emmet-vim"]
 	path = .vim/pack/mca/start/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
-[submodule ".vim/pack/mca/start/omnisharp-vim"]
-	path = .vim/pack/mca/start/omnisharp-vim
-	url = https://github.com/OmniSharp/omnisharp-vim.git
-[submodule ".vim/pack/mca/start/ale"]
-	path = .vim/pack/mca/start/ale
-	url = https://github.com/w0rp/ale.git
-[submodule ".vim/pack/mca/start/vim-commentary"]
-	path = .vim/pack/mca/start/vim-commentary
-	url = https://github.com/tpope/vim-commentary.git
-[submodule ".vim/pack/mca/start/vim-dispatch"]
+[submodule "vim-dispatch"]
 	path = .vim/pack/mca/start/vim-dispatch
 	url = https://github.com/tpope/vim-dispatch.git
-[submodule ".vim/pack/mca/start/vim-fugitive"]
+[submodule "vim-fugitive"]
 	path = .vim/pack/mca/start/vim-fugitive
 	url = https://github.com/tpope/vim-fugitive.git
-[submodule ".vim/pack/mca/start/vim-surround"]
+[submodule "vim-surround"]
 	path = .vim/pack/mca/start/vim-surround
 	url = https://github.com/tpope/vim-surround.git
-[submodule ".vim/pack/mca/start/fzf.vim"]
+[submodule "fzf"]
 	path = .vim/pack/mca/start/fzf.vim
 	url = https://github.com/junegunn/fzf.vim.git
 
@@ -63,7 +54,7 @@
 	url = https://github.com/christophermca/maui92.git
 [submodule ".vim/pack/mca/start/xterm-color-table.vim"]
 	path = .vim/pack/mca/start/xterm-color-table.vim
-	url = https://github.com/guns/xterm-color-table.vim
+	url = https://github.com/guns/xterm-color-table.vim.git
 [submodule ".vim/pack/mca/opt/pythoncomplete"]
 	path = .vim/pack/mca/opt/pythoncomplete
 	url = git@github.com:vim-scripts/pythoncomplete.git
@@ -89,6 +80,9 @@
 [submodule "ale"]
 	path = .vim/pack/mca/start/ale
 	url = https://github.com/w0rp/ale.git
-[submodule ".vim/pack/mca/opt/omnisharp-vim"]
+[submodule "omnisharp-vim"]
 	path = .vim/pack/mca/opt/omnisharp-vim
 	url = https://github.com/OmniSharp/omnisharp-vim.git
+[submodule "vim-commentary"]
+	path = .vim/pack/mca/start/vim-commentary
+	url = https://github.com/tpope/vim-commentary.git
