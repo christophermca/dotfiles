@@ -86,3 +86,6 @@
 [submodule ".vim/pack/mca/opt/ultisnips"]
 	path = .vim/pack/mca/opt/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
+[submodule "ale"]
+	path = .vim/pack/mca/start/ale
+	url = https://github.com/w0rp/ale.git
