@@ -89,3 +89,6 @@
 [submodule "ale"]
 	path = .vim/pack/mca/start/ale
 	url = https://github.com/w0rp/ale.git
+[submodule ".vim/pack/mca/opt/omnisharp-vim"]
+	path = .vim/pack/mca/opt/omnisharp-vim
+	url = https://github.com/OmniSharp/omnisharp-vim.git
