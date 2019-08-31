@@ -4,4 +4,4 @@ setlocal softtabstop=4
 let python_hightlight_all = 1
 set expandtab
 
-packadd python-syntax
+packadd vim-flake8

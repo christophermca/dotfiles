@@ -27,7 +27,8 @@ if &term =~ '256color'
 endif
 
 set background=dark
-colorscheme meta5
+let g:SpeysideDefaultLuminence = 1
+colorscheme speyside
 set cursorline
 
 " node suffix help
@@ -232,6 +233,8 @@ nnoremap <A-x> <C-x>
 " ****************
 
 " Copy/paste to system clipboard
+
+set clipboard=unnamed
 vmap <leader>y "*y
 vmap <leader>yy "*yy
 vmap <leader>Y "*Y
@@ -366,15 +369,11 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 "}}}
 
 " speyside {{{
-"{{{ Speyside - Coloscheme
-let g:SpeysideLuminosity = 1
-
-"}}}}
 if maparg('<leader>gs', 'n') ==# ''
-xmap <leader>gl  <plug>speyside
-vmap <leader>gl  <plug>speyside
-nmap <leader>gl  <plug>speyside
-omap <leader>gl  <plug>speyside
+xmap <leader>gl  <plug>Speyside
+vmap <leader>gl  <plug>Speyside
+nmap <leader>gl  <plug>Speyside
+omap <leader>gl  <plug>Speyside
 endif
 "}}}
 

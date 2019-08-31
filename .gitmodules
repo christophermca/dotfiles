@@ -4,6 +4,9 @@
 [submodule "meta5"]
 	path = .vim/pack/colorschemes/start/meta5
 	url = git@github.com:christophermca/meta5.git
+[submodule "speyside"]
+  path = .vim/pack/colorschemes/start/speyside
+  url = git@github.com:christophermca/speyside.git
 [submodule "ultisnips"]
 	path = .vim/pack/mca/opt/ultisnips
 	url = https://github.com/SirVer/ultisnips.git
@@ -89,4 +92,6 @@
 [submodule "pylint"]
 	path = .vim/pack/mca/opt/pylint
 	url = git@github.com:vim-scripts/pylint.vim.git
-
+[submodule "ack"]
+	path = .vim/pack/mca/start/ack
+	url = https://github.com/mileszs/ack.vim.git
