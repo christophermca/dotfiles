@@ -89,4 +89,6 @@
 [submodule "pylint"]
 	path = .vim/pack/mca/opt/pylint
 	url = git@github.com:vim-scripts/pylint.vim.git
-
+[submodule "ack"]
+	path = .vim/pack/mca/start/ack
+	url = https://github.com/mileszs/ack.vim.git
