@@ -235,25 +235,25 @@ nnoremap <A-x> <C-x>
 " Copy/paste to system clipboard
 
 set clipboard=unnamed
-vmap <leader>y "*y
-vmap <leader>yy "*yy
-vmap <leader>Y "*Y
-vmap <leader>yw "*yw
-vmap <leader>yb "*yb
-vmap <leader>D "*D
-vmap <leader>p "*p
-vmap <leader>P "*P
+vmap <leader>y "+y
+vmap <leader>yy "+yy
+vmap <leader>Y "+Y
+vmap <leader>yw "+yw
+vmap <leader>yb "+yb
+vmap <leader>D "+D
+vmap <leader>p "+p
+vmap <leader>P "+P
 
-nmap <leader>y "*y<cr>
-nmap <leader>yy "*yy<cr>
-nmap <leader>Y "*Y<cr>
-nmap <leader>yw "*yw<cr>
-nmap <leader>yb "*yb<cr>
-nmap <leader>D "*D<cr>
-nmap <leader>p "*p<cr>
-nmap <leader>P "*P<cr>
+nmap <leader>y "+y<cr>
+nmap <leader>yy "+yy<cr>
+nmap <leader>Y "+Y<cr>
+nmap <leader>yw "+yw<cr>
+nmap <leader>yb "+yb<cr>
+nmap <leader>D "+D<cr>
+nmap <leader>p "+p<cr>
+nmap <leader>P "+P<cr>
 
-nmap <leader>cp :let @* = expand("%")<cr>
+nmap <leader>cp :let @+ = expand("%")<cr>
 
 
 map <leader>ag :Ack<Space>
