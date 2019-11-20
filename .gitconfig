@@ -15,7 +15,7 @@
    unstage = reset HEAD --
 [help]
    browser = chrome
-	autocorrect = 1
+  autocorrect = 1
 [core]
   editory = vim
   fileMode = false
@@ -25,11 +25,11 @@
   eol = lf
   gitproxy = gitproxy for github
 [diff]
-	tool = vimdiff
+  tool = vimdiff
 [difftool]
-	prompt = true
+  prompt = true
 [color]
-	ui = true
+  ui = true
 [user]
-	name = Christopher MCAdams
-	email = mca.christopher@gmail.com
+  name = Christopher MCAdams
+  email = mca.christopher@gmail.com
