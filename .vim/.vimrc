@@ -370,7 +370,7 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 "}}}
 
 " speyside {{{
-if maparg('<leader>gs', 'n') ==# ''
+if maparg('<leader>gl', 'n') ==# ''
 xmap <leader>gl  <plug>Speyside
 vmap <leader>gl  <plug>Speyside
 nmap <leader>gl  <plug>Speyside
