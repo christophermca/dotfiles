@@ -12,5 +12,5 @@
 ```sh
 # <name>=<path/to/git> --git-dir=<path/to/save-gitfiles/> --work-tree=<path>
 
-alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
 ```

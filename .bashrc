@@ -188,7 +188,7 @@ alias rebc='git add . && git rebase --continue'
 alias rebs='git rebase --skip'
 alias fix='vim `git diff --name-only | uniq | xargs`'
 alias rem='remaster'
-alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles --work-tree=$HOME'
+alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
 
 
 #Functions
