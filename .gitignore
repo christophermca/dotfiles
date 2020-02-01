@@ -3,7 +3,11 @@
 !.bashrc
 !.bash_profile
 !.profile
+
+# track .vim/ excluding netrw history
 !.vim/**/*
+.vim/.netrwhist
+
 !.gitignore
 !.gitconfig
 !.gitmodules
@@ -11,4 +15,3 @@
 !.tmux.conf
 !.inputrc
 !.workrc
-.vim/.netrwhist

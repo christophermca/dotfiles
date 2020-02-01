@@ -34,4 +34,3 @@ fi
  fi
 
 [[ -f ~/.bin/attach.bash ]] && . ~/.bin/attach.bash
-[[ -f ~/.bashrc ]] && . ~/.bashrc
