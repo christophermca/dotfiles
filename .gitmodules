@@ -95,3 +95,5 @@
 [submodule "speyside"]
 	path = .vim/pack/colorschemes/start/speyside
 	url = git@github.com:christophermca/speyside.git
+[submodule ".vim/pack/colorschemes/start/speyside"]
+	branch = dev

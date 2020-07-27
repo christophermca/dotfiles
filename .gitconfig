@@ -13,6 +13,8 @@
    pullr = pull --rebase
    b = branch
    unstage = reset HEAD --
+   sup = submodule update --init --recursive --remote
+   susy = submodule sync
 [help]
   browser = chrome
   autocorrect = 1

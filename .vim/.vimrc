@@ -19,7 +19,6 @@ set backspace=indent,eol,start
 filetype plugin indent on
 syntax enable " enable syntax processing
 set autoindent
-
 set t_Co=256
 
 if &term =~ '256color'
@@ -217,7 +216,8 @@ nnoremap <leader>l :ls<CR>:b<space>
 " Quick change directory
 
 "JSON prettyify and validate
-map <leader>jn :%!python3 -m json.tool<CR>
+com! FormatJSON '<,'>!python -m json.tool
+map <leader>jn :FormatJSON<cr>
 
 map <leader>de :'<,'>!python -m base64 -d<CR>
 
@@ -273,6 +273,7 @@ nmap <leader>ec :call ToggleColorEdit()<CR>
 nmap <leader>r :call <SID>MochaTest()<CR>
 nmap <leader>e :call <SID>MochaDebugTest()<CR>
 nmap <silent> <leader>1 :call <SID>Console()<CR>
+nmap <silent> <leader>o :call <SID>Focus()<CR>
 
 " ____SPLIT CONTROLS
 nmap <C-h> <C-w>h
@@ -283,6 +284,11 @@ nmap <C-j> <C-w>j
 nnoremap - :call <SID>OpenView()<CR>
 "}}}
 " {{{ FUNCTIONS
+function! <SID>Focus()
+  :mksession ~/session.vim<CR>
+  :wincmd o<CR>
+endfunction
+
 function! <SID>Respace()
  let l = line(".")
  let c = col(".")
