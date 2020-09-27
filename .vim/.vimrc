@@ -26,7 +26,7 @@ if &term =~ '256color'
 endif
 
 set background=dark
-let g:SpeysideDefaultLuminence = 3
+let g:SpeysideDefaultLuminence = 2
 colorscheme speyside
 set cursorline
 

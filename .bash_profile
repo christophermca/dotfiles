@@ -23,7 +23,6 @@ export PATH="$HOME/.yarn/bin:$PATH"
 export PATH="$HOME/.rbenv/shims:$HOME/.gem/ruby/2.7.0/bin/:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 
-
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 #RBENV
