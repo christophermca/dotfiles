@@ -1,6 +1,9 @@
 [submodule "vim-jsx"]
 	path = .vim/pack/mca/opt/vim-jsx
 	url = git@github.com:mxw/vim-jsx.git
+[submodule "vim-go"]
+	path = .vim/pack/mca/start/vim-go
+	url = git@github.com:fatih/vim-go.git
 [submodule "meta5"]
 	path = .vim/pack/colorschemes/start/meta5
 	url = git@github.com:christophermca/meta5.git
@@ -97,3 +100,6 @@
 	url = git@github.com:christophermca/speyside.git
 [submodule ".vim/pack/colorschemes/start/speyside"]
 	branch = dev
+[submodule ".vim/pack/mca/start/vim-go"]
+	path = .vim/pack/mca/start/vim-go
+	url = https://github.com/fatih/vim-go

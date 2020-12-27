@@ -5,10 +5,6 @@
 " Plugins
 "=============================================================================
 " Vim >= 7.0 specific colors
-if !has('packages')
-  source ~/.vundle
-endif
-
 " compatibility
 set nocompatible
 

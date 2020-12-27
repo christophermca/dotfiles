@@ -7,4 +7,4 @@ setlocal conceallevel=0
 inoremap { {<CR>}<Esc>O
 inoremap [ [<CR>]<Esc>O
 packadd vim-json
-
+let g:vim_json_syntax_conceal=0
