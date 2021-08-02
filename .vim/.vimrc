@@ -22,7 +22,12 @@ if &term =~ '256color'
 endif
 
 set background=dark
-let g:SpeysideDefaultLuminence = 2
+" if spsy is set try and use it
+if exists("$spsy")
+  let g:SpeysideDefaultLuminence = $spsy 
+else
+  let g:SpeysideDefaultLuminence = 2
+endif
 colorscheme speyside
 set cursorline
 
@@ -138,7 +143,7 @@ set softtabstop=2 " Number of spaces in tab when editing
 set expandtab " Tabs are spaces
 
 "Show hidden chars
-set list listchars=tab:»¬,trail:·
+set list listchars=tab:«-»,trail:·
 "}}}
 " status bar + command line {{{
 " ****************
@@ -301,7 +306,6 @@ function! <SID>MochaDebugTest()
 :!mocha debug %
 endfunction
 
-
 function! <SID>MochaTest()
 :!clear && NODE_ENV=test mocha %
 endfunction
@@ -377,6 +381,13 @@ xmap <leader>gl  <plug>Speyside
 vmap <leader>gl  <plug>Speyside
 nmap <leader>gl  <plug>Speyside
 omap <leader>gl  <plug>Speyside
+endif
+
+if maparg('<leader>gy', 'n') ==# ''
+xmap <leader>gt  <plug>ToggleLuminance
+vmap <leader>gt  <plug>ToggleLuminance
+nmap <leader>gt  <plug>ToggleLuminance
+omap <leader>gt  <plug>ToggleLuminance
 endif
 "}}}
 

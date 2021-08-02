@@ -165,12 +165,11 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 ###
 # ALIASES
 ###
-
 alias .bashrc='vim $HOME/.bashrc'
 alias .bash_profile='vim $HOME/.bash_profile'
 
-alias killport="killPort"
-
+alias killport="kill_port"
+alias alacri="configure_alacritty"
 ###
 # GIT aliases
 ###
@@ -185,7 +184,33 @@ alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
 
 # Functions
 
-killPort() {
+
+learn() {
+  local GREEN="\e[32m";
+  local RED="\e[31m";
+  local NORMAL="\e[0m";
+
+  report_error() {
+    echo -e "\"${RED}$1${NORMAL}\" is not an option\n\n${GREEN}Available Options:"
+    ls -1 ~/Repos/_learning/
+  };
+
+  found_subject() {
+    echo -e "Lets Learn ${GREEN}$1${NORMAL}!\n"
+    cd ~/Repos/_learning/$1
+    echo "Projects:"
+    ls .
+  };
+
+  if (( $# == 1 )); then
+    [[ -d ~/Repos/_learning/$1 ]] && found_subject $1 || report_error $1
+    echo -e  "\n"
+  else
+    cd ~/Repos/_learning/
+  fi
+}
+
+kill_port() {
   if (( $# == 1 )); then
     local PORT=$1
     local readonly USEDPORT=$(lsof -i :$PORT);
@@ -249,5 +274,36 @@ attach() {
     fi
   fi
 }
+
+configure_alacritty() {
+  local color;
+  local dayNight;
+  local alacritty_dir=$HOME/.config/alacritty
+  local configfile=${alacritty_dir}/alacritty.yml
+
+  cat ${alacritty_dir}/base.yml > $configfile
+  if (( $# == 1 )); then
+    dayNight=$1
+    export DAY_NIGHT=$1
+  fi
+
+  # lazy configuration
+  case ${dayNight} in
+    "night")
+      color="tango"
+      ;;
+    "day")
+      color="paper"
+      ;;
+  esac
+
+  if [ $color ];  then
+    cat ${alacritty_dir}/colors/${color}.yml >> $configfile
+  fi
+}
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # vim: fdm=marker foldlevelstart=1 foldlevel=0

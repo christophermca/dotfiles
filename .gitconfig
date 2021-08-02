@@ -35,3 +35,5 @@
 [user]
   name = Christopher MCAdams
   email = mca.christopher@gmail.com
+[url "git@github.com:"]
+  insteadOf = https://github.com

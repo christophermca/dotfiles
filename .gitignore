@@ -15,3 +15,5 @@
 !.tmux.conf
 !.inputrc
 !.workrc
+
+.config/alacritty/**/*
