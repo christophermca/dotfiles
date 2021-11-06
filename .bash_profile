@@ -26,7 +26,7 @@ export PATH="$HOME/.rbenv/shims:$HOME/.gem/ruby/2.7.0/bin/:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+# eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 #RBENV
 if command -v rbenv > /dev/null ; then
