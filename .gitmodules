@@ -103,3 +103,6 @@
 [submodule ".vim/pack/mca/start/vim-go"]
 	path = .vim/pack/mca/start/vim-go
 	url = https://github.com/fatih/vim-go
+[submodule "/home/christophermca/.config/i3blocks/scripts/i3blocks-contrib"]
+	path = /home/christophermca/.config/i3blocks/scripts/i3blocks-contrib
+	url = https://github.com/vivien/i3blocks-contrib

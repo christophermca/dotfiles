@@ -9,6 +9,7 @@
 # Global properties
 separator=true
 separator_block_width=15
+markup=pango
 
 [documentation]
 full_text=Documentation
@@ -17,9 +18,15 @@ command=xdg-open "$website"
 color=#f12711
 
 [battery]
-command=~/.config/i3blocks/battery/battery.sh
+command="$SCRIPTS_DIR/custom/battery/battery.sh"
 color=#BBFBCF
 interval=10
+
+[volume-pulseaudio]
+command="$SCRIPTS_DIR/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio"
+interval=persist
+SUBSCRIBE=1
+LONG_FORMAT=${SYMB}${VOL}%
 
 [weather]
 command=curl -Ss 'https:/wttr.in/south_lyon?O&T&Q&u' | cut -c 16- | head -2 | xargs echo
@@ -30,29 +37,4 @@ interval=3600
 command=date '+%b %d.%Y %H:%M'
 interval=5
 
-[volume-pulseaudio]
-#command=$SCRIPT_DIR/volume-pulseaudio
-interval=persist
-signal=1
-SUBSCRIBE=1
-LABEL=VOL
-#MIXER=[determined automatically]
-#SCONTROL=[determined automatically]
-
-##exposed format variables: ${SYMB}, ${VOL}, ${INDEX}, ${NAME}
-LONG_FORMAT="${SYMB} ${VOL}% [${INDEX}:${NAME}]"
-SHORT_FORMAT="${SYMB} ${VOL}% [${INDEX}]"
-AUDIO_HIGH_SYMBOL='  '
-AUDIO_MED_THRESH=50
-AUDIO_MED_SYMBOL='  '
-AUDIO_LOW_THRESH=0
-AUDIO_LOW_SYMBOL='  '
-AUDIO_DELTA=5
-DEFAULT_COLOR="#ffffff"
-MUTED_COLOR="#a0a0a0"
-#USE_ALSA_NAME=0
-#USE_DESCRIPTION=0
-
-## SUBSCRIBE=1 requires interval=persist and always uses LONG_FORMAT
-#SUBSCRIBE=0
 
