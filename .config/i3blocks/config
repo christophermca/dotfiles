@@ -11,6 +11,16 @@ separator=true
 separator_block_width=15
 markup=pango
 
+[weather]
+command=curl -Ss 'https:/wttr.in/south_lyon?O&T&Q&u' | cut -c 16- | head -2 | xargs echo
+color=#A4C2c9
+interval=3600
+align=left
+min_width=700
+border_right=3
+border_left=3
+separator=true
+
 [documentation]
 full_text=Documentation
 website=https://vivien.github.io/i3blocks
@@ -34,10 +44,6 @@ interval=persist
 SUBSCRIBE=1
 LONG_FORMAT=${SYMB}${VOL}%
 
-[weather]
-command=curl -Ss 'https:/wttr.in/south_lyon?O&T&Q&u' | cut -c 16- | head -2 | xargs echo
-color=#A4C2c9
-interval=3600
 
 [time]
 command=date '+%b %d.%Y %H:%M'

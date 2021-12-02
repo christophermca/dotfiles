@@ -178,6 +178,7 @@ mode "resize" {
 bindsym $mod+t floating toggle
 bindsym $mod+x layout toggle
 bindsym $mod+r mode "resize"
+bindsym Control+Mod1+Delete exec ~/.config/i3blocks/scripts/i3blocks-contrib/shutdow_menu/shutdown_menu
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -189,24 +190,31 @@ bar {
 }
 
 
-#borders
-hide_edge_borders smart
+# Borders
+# hide_edge_borders smart
 
 # Autostart aka Startup
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id feh --no-fehbg --bg-fill '/home/christophermca/Pictures/tweaked_wallpapers/long_cityscape5.jpg'
+
+## Needed to authenticate pamac-gtk
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+
+## Picom window composer
 exec --no-startup-id picom -b --no-fading-openclose
+
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+##
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
+###
+
 exec --no-startup-id nm-applet
 exec --no-startup-id blueberry-tray
 
-bindsym Control+Mod1+Delete exec ~/.config/i3blocks/scripts3blocks-contrib/shutdow_menu/shutdown_menu
 
 # Multiple Monitors - home display setup.
 # ?? where should this go ??
