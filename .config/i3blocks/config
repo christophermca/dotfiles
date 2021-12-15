@@ -15,17 +15,17 @@ markup=pango
 command=curl -Ss 'https:/wttr.in/south_lyon?O&T&Q&u' | cut -c 16- | head -2 | xargs echo
 color=#A4C2c9
 interval=3600
-align=left
-min_width=700
-border_right=3
-border_left=3
+# align=center
+# min_width=700
+# border_right=3
+# border_left=3
 separator=true
 
-[documentation]
-full_text=Documentation
-website=https://vivien.github.io/i3blocks
-command=xdg-open "$website"
-color=#f12711
+# [documentation]
+# full_text=Documentation
+# website=https://vivien.github.io/i3blocks
+# command=xdg-open "$website"
+# color=#f12711
 
 [battery]
 command="$SCRIPTS_DIR/custom/battery/battery.sh"
@@ -33,10 +33,10 @@ color=#BBFBCF
 interval=10
 
 # Idea for using simple bluetooth notice --- not sure about it
-# [bluetooth]
-# command="$SCRIPTS_DIR/custom/bluetooth/bluetooth.sh"
-# color=#AAFFEE
-# interval=10
+[bluetooth]
+command="$SCRIPTS_DIR/custom/bluetooth/bluetooth.sh"
+color=#AAFFEE
+interval=persist
 
 [volume-pulseaudio]
 command="$SCRIPTS_DIR/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio"
@@ -44,26 +44,25 @@ interval=persist
 SUBSCRIBE=1
 LONG_FORMAT=${SYMB}${VOL}%
 
-
 [time]
-command=date '+%b %d.%Y %H:%M'
+command=date '+%b %d.%Y _ %H:%M'
 interval=5
 
-[shutdown_menu]
-full_text=[power-off]
-# If you are using FontAwesome, we recommend the power-off icon:
-# http://fontawesome.io/icon/power-off/
-#FG_COLOR=#bbbbbb
-#BG_COLOR=#111111
-#HLFG_COLOR=#111111
-#HLBG_COLOR=#bbbbbb
-#BORDER_COLOR=#222222
-ROFI_TEXT=Menu:
-ROFI_OPTIONS=-width 11 -location 3 -hide-scrollbar -bw 2
-#ZENITY_TITLE=Menu
-#ZENITY_TEXT=Action:
-#ZENITY_OPTIONS=--column= --hide-header
-ENABLE_CONFIRMATIONS=true (must be true or false)
-LAUNCHER=rofi (must be rofi or zenity)
-LOCKSCRIPT=i3lock --color=${BG_COLOR#"#"}
-bindsym Control+Mod1+Delete exec "$SCRIPT_DIR/i3blocks-contrib/shutdown_menu/shutdown_menu"
+#[shutdown_menu]
+#full_text=
+## If you are using FontAwesome, we recommend the power-off icon:
+## http://fontawesome.io/icon/power-off/
+#command="$SCRIPTS_DIR/i3blocks-contrib/shutdown_menu/shutdown_menu"
+## FG_COLOR=#bbbbbb
+## BG_COLOR=#111111
+##HLFG_COLOR=#111111
+##HLBG_COLOR=#bbbbbb
+##BORDER_COLOR=#222222
+#ROFI_TEXT=Menu:
+#ROFI_OPTIONS=-width 11 -location 3 -hide-scrollbar -bw 2
+##ZENITY_TITLE=Menu
+##ZENITY_TEXT=Action:
+##ZENITY_OPTIONS=--column= --hide-header
+#ENABLE_CONFIRMATIONS=false #(must be true or false)
+#LAUNCHER=rofi #(must be rofi or zenity)
+## LOCKSCRIPT=i3lock --color=${BG_COLOR#"#"}
