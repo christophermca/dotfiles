@@ -11,15 +11,17 @@ separator=true
 separator_block_width=15
 markup=pango
 
+# [weather_NOAA]
+# command=$SCRIPT_DIR/i3blocks-contrib/weather_NOAA/weather_NOAA
+# LAT=42.44439
+# LON=-82.6698
+# color=#A4C2c9
+# interval=3600
+
 [weather]
 command=curl -Ss 'https:/wttr.in/south_lyon?O&T&Q&u' | cut -c 16- | head -2 | xargs echo
 color=#A4C2c9
 interval=3600
-# align=center
-# min_width=700
-# border_right=3
-# border_left=3
-separator=true
 
 # [documentation]
 # full_text=Documentation
@@ -28,18 +30,12 @@ separator=true
 # color=#f12711
 
 [battery]
-command="$SCRIPTS_DIR/custom/battery/battery.sh"
+command=$SCRIPTS_DIR/custom/battery/battery
 color=#BBFBCF
 interval=10
 
-# Idea for using simple bluetooth notice --- not sure about it
-[bluetooth]
-command="$SCRIPTS_DIR/custom/bluetooth/bluetooth.sh"
-color=#AAFFEE
-interval=persist
-
 [volume-pulseaudio]
-command="$SCRIPTS_DIR/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio"
+command=$SCRIPTS_DIR/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio
 interval=persist
 SUBSCRIBE=1
 LONG_FORMAT=${SYMB}${VOL}%
@@ -47,22 +43,3 @@ LONG_FORMAT=${SYMB}${VOL}%
 [time]
 command=date '+%b %d.%Y _ %H:%M'
 interval=5
-
-#[shutdown_menu]
-#full_text=
-## If you are using FontAwesome, we recommend the power-off icon:
-## http://fontawesome.io/icon/power-off/
-#command="$SCRIPTS_DIR/i3blocks-contrib/shutdown_menu/shutdown_menu"
-## FG_COLOR=#bbbbbb
-## BG_COLOR=#111111
-##HLFG_COLOR=#111111
-##HLBG_COLOR=#bbbbbb
-##BORDER_COLOR=#222222
-#ROFI_TEXT=Menu:
-#ROFI_OPTIONS=-width 11 -location 3 -hide-scrollbar -bw 2
-##ZENITY_TITLE=Menu
-##ZENITY_TEXT=Action:
-##ZENITY_OPTIONS=--column= --hide-header
-#ENABLE_CONFIRMATIONS=false #(must be true or false)
-#LAUNCHER=rofi #(must be rofi or zenity)
-## LOCKSCRIPT=i3lock --color=${BG_COLOR#"#"}
