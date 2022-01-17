@@ -22,16 +22,17 @@ export PATH="/usr/bin:/usr/sbin:/bin:/sbin"
 export PATH="/usr/local/bin:$HOME/.local/bin:$PATH"
 export PATH="$HOME/node_modules/.bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
-export PATH="$HOME/.rbenv/shims:$HOME/.gem/ruby/2.7.0/bin/:$PATH"
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
 
 # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 
 #RBENV
-if command -v rbenv > /dev/null ; then
-	eval "$(rbenv init - --no-rehash)"
-fi
+
+# export PATH="$HOME/.rbenv/shims:$HOME/.gem/ruby/2.7.0/bin/:$PATH"
+# if command -v rbenv > /dev/null ; then
+# 	eval "$(rbenv init - --no-rehash)"
+# fi
 
 # Load .tmuxinator, containing tmuxinator logic
  if [ -e "$HOME/.bin/tmuxinator.bash" ]; then
