@@ -34,10 +34,6 @@
 [submodule "xterm-color-table"]
 	path = .vim/pack/mca/start/xterm-color-table.vim
 	url = https://github.com/guns/xterm-color-table.vim.git
-
-
-
-
 [submodule "emmet-vim"]
 	path = .vim/pack/mca/opt/emmet-vim
 	url = https://github.com/mattn/emmet-vim.git
