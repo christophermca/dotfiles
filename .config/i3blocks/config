@@ -11,13 +11,6 @@ separator=true
 separator_block_width=15
 markup=pango
 
-# [weather_NOAA]
-# command=$SCRIPT_DIR/i3blocks-contrib/weather_NOAA/weather_NOAA
-# LAT=42.44439
-# LON=-82.6698
-# color=#A4C2c9
-# interval=3600
-
 [weather]
 command=curl -Ss 'https:/wttr.in/south_lyon?O&T&Q&u' | cut -c 16- | head -2 | xargs echo
 color=#A4C2c9
@@ -40,7 +33,7 @@ interval=persist
 signal=1
 SUBSCRIBE=1
 USE_ALSA_NAME=0
-LONG_FORMAT=${SYMB}${VOL}% [${INDEX}:${NAME}]
+LONG_FORMAT=${SYMB}${VOL}%
 MUTED_COLOR=#c97080
 
 [time]
