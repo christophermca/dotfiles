@@ -67,18 +67,12 @@
 [submodule ".vim/pack/mca/opt/tsuquyomi"]
 	path = .vim/pack/mca/opt/tsuquyomi
 	url = https://github.com/Quramy/tsuquyomi.git
-[submodule ".vim/pack/mca/opt/maui92"]
-	path = .vim/pack/mca/opt/maui92
-	url = https://github.com/christophermca/maui92.git
 [submodule ".vim/pack/mca/opt/pylint.vim"]
 	path = .vim/pack/mca/opt/pylint.vim
 	url = git@github.com:vim-scripts/pylint.vim.git
 [submodule "vim-HiLinkTrace"]
 	path = .vim/pack/mca/opt/vim-HiLinkTrace
 	url = https://github.com/gerw/vim-HiLinkTrace.git
-[submodule "maui92"]
-	path = .vim/pack/colorschemes/opt/maui92
-	url = https://github.com/christophermca/maui92.git
 [submodule "pythoncomplete"]
 	path = .vim/pack/mca/opt/pythoncomplete
 	url = git@github.com:vim-scripts/pythoncomplete.git
@@ -99,6 +93,6 @@
 [submodule ".vim/pack/mca/start/vim-go"]
 	path = .vim/pack/mca/start/vim-go
 	url = https://github.com/fatih/vim-go
-[submodule "/home/christophermca/.config/i3blocks/scripts/i3blocks-contrib"]
-	path = /home/christophermca/.config/i3blocks/scripts/i3blocks-contrib
+[submodule ".config/i3blocks/scripts/i3blocks-contrib"]
+	path = .config/i3blocks/scripts/i3blocks-contrib
 	url = https://github.com/vivien/i3blocks-contrib

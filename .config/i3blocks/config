@@ -5,27 +5,27 @@
 #
 #     https://vivien.github.io/i3blocks
 
-
 # Global properties
 separator=true
 separator_block_width=15
 markup=pango
 
+# Blocks
 [weather]
 command=curl -Ss 'https:/wttr.in/south_lyon?O&T&Q&u' | cut -c 16- | head -2 | xargs echo
 color=#A4C2c9
 interval=3600
 
-# [documentation]
-# full_text=Documentation
-# website=https://vivien.github.io/i3blocks
-# command=xdg-open "$website"
-# color=#f12711
-
 [battery]
 command=$SCRIPTS_DIR/custom/battery/battery
 color=#BBFBCF
 interval=10
+
+[presentation]
+command=$SCRIPTS_DIR/custom/presentation-mode
+DISABLED_COLOR=#777777
+color=#c19e2a
+interval=1
 
 [volume-pulseaudio]
 command=$SCRIPTS_DIR/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio
