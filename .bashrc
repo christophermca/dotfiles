@@ -176,6 +176,7 @@ alias alacri="configure_alacritty"
 ###
 
 alias graph='git log --oneline --graph --abbrev-commit --pretty=format:"%Cgreen %h %Creset%s %n%an - %cr %n%n"'
+alias _graph='dfi log --oneline --graph --abbrev-commit --pretty=format:"%Cgreen %h %Creset%s %n%an - %cr %n%n"'
 alias reb='git rebase'
 alias rebc='git add . && git rebase --continue'
 alias rebs='git rebase --skip'
