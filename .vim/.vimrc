@@ -24,7 +24,7 @@ endif
 set background=dark
 " if spsy is set try and use it
 if exists("$spsy")
-  let g:SpeysideDefaultLuminence = $spsy 
+  let g:SpeysideDefaultLuminence = $spsy
 else
   let g:SpeysideDefaultLuminence = 2
 endif
@@ -169,7 +169,7 @@ set number " show line numbers
 set nuw=4
 "}}}
 " mouse {{{
-set mouse=a " Automatically enable mouse usage
+set mouse=vh " Automatically enable mouse usage
 set mousehide " Hide the mouse cursor while typing
 "}}}
 " searching {{{
