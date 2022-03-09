@@ -183,7 +183,7 @@ bindsym $mod+Shift+r restart
 
 # Set shut down, restart and locking features
 set $BackgroundImage "/home/christophermca/Pictures/tweaked_wallpapers/long_cityscape6_clean.png"
-set $Locker convert "/home/christophermca/Pictures/tweaked_wallpapers/long_cityscape6_lock.png" -gravity Center -background black -extent 2560x1440 RGB:- | i3lock --raw 2560x1440:rgb --image /dev/stdin  && sleep 1
+set $Locker convert "/home/christophermca/Pictures/tweaked_wallpapers/long_cityscape6_lock.png" -gravity Center -background black -extent 2560x1440 RGB:- | i3lock -e --raw 2560x1440:rgb --image /dev/stdin  && sleep 1
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 
 mode "$mode_system" {
@@ -274,7 +274,8 @@ exec --no-startup-id xrandr --output DP-2 --auto --scale 2 --dpi 96 --right-of e
 exec --no-startup-id feh --no-fehbg --bg-max $BackgroundImage
 
 # Picom window composer
-# This handle bluring and transparency
+# This handle displaying bluring and transparency
+# configuration found @ .config/picom/picom.conf
 exec --no-startup-id picom -b --no-fading-openclose --experimental-backends
 
 

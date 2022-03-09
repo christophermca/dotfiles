@@ -1,0 +1,25 @@
+#!/bin/bash
+BAT=$(acpi -b | grep -E -o '1?[0-9]{1,2}%')
+AC=$(acpi -a | grep -E -o 'on-line')
+
+if [[ -z $AC ]]; then
+  # Full and short texts
+  echo ": $BAT"
+  echo "BAT: $BAT"
+else
+  if [ ${BAT%?} -gt 99 ]; then
+    echo "AC $BAT"
+    echo "AC $BAT"
+  else
+    echo ": $BAT"
+    echo ": $BAT"
+  fi
+fi
+
+
+# Set urgent flag below 5% or use orange below 20%
+[ ${BAT%?} -le 5 ] && exit 33
+[ ${BAT%?} -le 20 ] && echo "#FF8000"
+
+exit 0
+
