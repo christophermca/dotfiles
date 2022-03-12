@@ -305,7 +305,6 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 ###
 exec --no-startup-id xfce4-power-manager
 
-
 ####
 # Applets
 ####
