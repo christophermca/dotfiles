@@ -35,9 +35,12 @@ font pango:monospace 8
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
 font pango:DejaVu Sans Mono 8
 
+####
+# Custom shortcuts
+####
 
 ####
-# i3wm configuration - controls  and movement
+# i3WM configuration - controls and movement
 ####
 
 
@@ -150,7 +153,6 @@ bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -R
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle && pkill -RTMIN+1 i3blocks
 
-# Use Mouse+$mod to drag floating windows to their wanted position
 
 # start a terminal
 bindsym $mod+Return exec --no-startup-id alacritty
@@ -177,20 +179,29 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
+# screen before suspend. Use loginctl lock-session to lock your screen.
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
 # exit i3 (logs you out of your X session)
 # not needed when using xfce4 and i3
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
 set $BackgroundImage "/home/christophermca/Pictures/tweaked_wallpapers/long_cityscape6_clean.png"
-set $Locker convert "/home/christophermca/Pictures/tweaked_wallpapers/long_cityscape6_lock.png" -gravity Center -background black -extent 2560x1440 RGB:- | i3lock -e --raw 2560x1440:rgb --image /dev/stdin  && sleep 1
-set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
+set $Locker convert "/home/christophermca/Pictures/tweaked_wallpapers/long_cityscape6_lock.png"  \
+   -gravity Center \
+   -background black \
+   -extent 2560x1440 \
+   RGB:- \
+   | i3lock -e --raw 2560x1440:rgb --image /dev/stdin  && sleep 1
+
+set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 
 mode "$mode_system" {
     bindsym l exec --no-startup-id $Locker, mode "default"
-    bindsym e exec --no-startup-id i3-msg exit, mode "default"
+    bindsym e exec --no-startup-id xfce4-session-logout --logout, mode "default"
     bindsym s exec --no-startup-id $Locker && systemctl suspend, mode "default"
-    bindsym h exec --no-startup-id $Locker && systemctl hibernate, mode "default"
     bindsym r exec --no-startup-id systemctl reboot, mode "default"
     bindsym Shift+s exec --no-startup-id systemctl poweroff -i, mode "default"
 
@@ -225,6 +236,7 @@ bindsym Right resize grow width 10 px or 10 ppt
     bindsym $mod+r mode "default"
 }
 
+# Use Mouse+$mod to drag floating windows to their wanted position
 bindsym $mod+t floating toggle
 bindsym $mod+x layout toggle
 bindsym $mod+r mode "resize"
@@ -271,7 +283,7 @@ for_window [window_role="Bluetooth"] floating enable
 ##
 
 exec --no-startup-id xrandr --output DP-2 --auto --scale 2 --dpi 96 --right-of eDP-1
-exec --no-startup-id feh --no-fehbg --bg-max $BackgroundImage
+exec --no-startup-id feh --no-fehbg --bg-center $BackgroundImage --fill black
 
 # Picom window composer
 # This handle displaying bluring and transparency
@@ -286,9 +298,6 @@ exec --no-startup-id picom -b --no-fading-openclose --experimental-backends
 ## Needed to authenticate pamac-gtk
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 
 ###

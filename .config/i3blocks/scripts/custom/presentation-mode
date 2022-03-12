@@ -2,7 +2,7 @@
 
 presentation_mode=$(xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode)
 
-if [ $button -eq 1 ]; then
+if [[ $button -eq 1 ]]; then
  xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -T
 fi
 
