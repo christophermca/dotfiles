@@ -26,12 +26,12 @@ set background=dark
 if exists("$spsy")
   let g:SpeysideDefaultLuminence = $spsy
 else
-  let g:SpeysideDefaultLuminence = 2
+  let g:SpeysideDefaultLuminence = 1
 endif
 colorscheme speyside
 set cursorline
 
-" node suffix help
+" nodejs suffix help
 set suffixesadd=.js,.jsx,.ts,.tsx,.styl,.css
 
 " fix slow escape in iterm2

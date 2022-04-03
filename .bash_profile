@@ -16,14 +16,17 @@ if [ ! -v $SSH_AGENT_PID ]; then
 fi
 
 export GOPATH=$HOME/go
+export RUBY=$HOME/.local/share/gem/ruby/3.0.0
 
 # PATH
 export PATH="/usr/bin:/usr/sbin:/bin:/sbin"
 export PATH="/usr/local/bin:$HOME/.local/bin:$PATH"
 export PATH="$HOME/node_modules/.bin:$PATH"
 export PATH="$HOME/.yarn/bin:$PATH"
+
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$RUBY/bin
 
 # eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 

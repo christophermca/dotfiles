@@ -196,6 +196,23 @@ set $Locker convert "/home/christophermca/Pictures/tweaked_wallpapers/long_citys
    RGB:- \
    | i3lock -e --raw 2560x1440:rgb --image /dev/stdin  && sleep 1
 
+# redshift modes
+bindsym $mod+n mode "$mode_redshift"
+set $mode_redshift Set colour temperature: (a)uto, (r)eset, (2)500K, (3)000K, (4)000K, (5)000K
+set $kill_redshift pkill -9 redshift;
+mode "$mode_redshift" {
+    bindsym a exec --no-startup-id "$kill_redshift redshift -P -t 6500:5000", mode "default"
+    bindsym r exec --no-startup-id "$kill_redshift redshift -x", mode "default"
+    bindsym 2 exec --no-startup-id "$kill_redshift redshift -P -O 2500", mode "default"
+    bindsym 3 exec --no-startup-id "$kill_redshift redshift -P -O 3000", mode "default"
+    bindsym 4 exec --no-startup-id "$kill_redshift redshift -P -O 4000", mode "default"
+    bindsym 5 exec --no-startup-id "$kill_redshift redshift -P -O 5000", mode "default"
+
+    # exit mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 set $mode_system System (l) lock, (e) logout, (s) suspend, (r) reboot, (Shift+s) shutdown
 
 mode "$mode_system" {
@@ -253,15 +270,17 @@ bar {
 }
 
 # Gaps and Borders
-hide_edge_borders smart
-gaps inner 4
+smart_gaps on
+smart_borders on
+hide_edge_borders smart_no_gaps
+gaps inner 2
 
 ###
 # Windows
 ###
 
-for_window [all] border pixel 0 title_window_icon on
-for_window [class="Alacritty"] border pixel 1
+for_window [all] title_window_icon on
+for_window [all] border pixel 1
 for_window [class="Spotify"] border pixel 1 move --no-auto-back-and-forth container to workspace $ws10
 
 for_window [window_type="dialog"] floating enable
@@ -283,12 +302,15 @@ for_window [window_role="Bluetooth"] floating enable
 ##
 
 exec --no-startup-id xrandr --output DP-2 --auto --scale 2 --dpi 96 --right-of eDP-1
-exec --no-startup-id feh --no-fehbg --bg-center $BackgroundImage --fill black
+# exec --no-startup-id feh --no-fehbg --bg-center $BackgroundImage --fill black
 
 # Picom window composer
 # This handle displaying bluring and transparency
 # configuration found @ .config/picom/picom.conf
+
 exec --no-startup-id picom -b --no-fading-openclose --experimental-backends
+
+exec --no-startup-id /usr/local/etc/theme-switcher/theme-switcher.sh
 
 
 ###
@@ -298,6 +320,15 @@ exec --no-startup-id picom -b --no-fading-openclose --experimental-backends
 ## Needed to authenticate pamac-gtk
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
+###
+# location
+###
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/agent
+exec --no-startup-id /usr/lib/geoclue-2.0/demos/where-am-i
+
+#exec --no-startup-id redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}')
+exec --no-startup-id redshift
+# exec --no-startup-id * * * * * /usr/local/etc/theme-switcher/theme-switcher.sh
 
 
 ###
@@ -318,3 +349,6 @@ exec --no-startup-id blueman-applet
 # Gnome bluetooth tray applet
 # exec --no-startup-id blueberry-tray
 
+
+
+### trial
