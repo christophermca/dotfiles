@@ -37,14 +37,14 @@ colors() {
 
 # Change the window title of X terminals
 
-  case ${TERM} in
-    xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
-        # PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME%%.*}\007"'
-        ;;
-      screen*)
-        # PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
-        ;;
-    esac
+case ${TERM} in
+  xterm*|rxvt*|Eterm*|aterm|kterm|gnome*|interix|konsole*)
+    # PROMPT_COMMAND='echo -ne "\033]0;${HOSTNAME%%.*}\007"'
+    ;;
+  screen*)
+    # PROMPT_COMMAND='echo -ne "\033_${USER}@${HOSTNAME%%.*}:${PWD/#$HOME/\~}\033\\"'
+    ;;
+esac
 
 use_color=true
 
@@ -70,50 +70,50 @@ match_lhs=""
       elif [[ -f /etc/DIR_COLORS ]] ; then
         eval $(dircolors -b /etc/DIR_COLORS)
       fi
-      fi
+    fi
 
-      if [[ ${EUID} == 0 ]] ; then
-        # root
-        PS1="\e[31;40m❲\u@\h❳\e[0m \w \e[0m\n \$ "
-      else
-        RESET="\e[m";
-        BLUE="\e[1;34m\]";
-        GREY="\e[2;37m\]";
-        COLOR1="\e[0;33m\]"
-
-        CURRENT_PATH="$GREY\w$RESET";
-        COMPNAME="$RESET$BLUE\h$RESET";
-        GIT_INFO="\$(__git_ps1 '|$COLOR1%s$RESET')";
-        END=" \$ ";
-
-        PS1="❲$COMPNAME$GIT_INFO❳ $CURRENT_PATH\n$END"
-
-      fi
-
-      alias ls='ls --color=auto'
-      alias grep='grep --colour=auto'
-      alias egrep='egrep --colour=auto'
-      alias fgrep='fgrep --colour=auto'
+    if [[ ${EUID} == 0 ]] ; then
+      # root
+      PS1="\e[31;40m❲\u@\h❳\e[0m \w \e[0m\n \$ "
     else
-      if [[ ${EUID} == 0 ]] ; then
-        # show root@ when we don't have colors
-        PS1='\u@\h \W \$ '
-      else
-        PS1='\u@\h \w \$ '
-      fi
-      fi
+      RESET="\e[m";
+      BLUE="\e[1;34m\]";
+      GREY="\e[2;37m\]";
+      COLOR1="\e[0;33m\]"
 
-      unset use_color safe_term match_lhs sh
+      CURRENT_PATH="$GREY\w$RESET";
+      COMPNAME="$RESET$BLUE\h$RESET";
+      GIT_INFO="\$(__git_ps1 '|$COLOR1%s$RESET')";
+    END=" \$ ";
 
-      alias cp="cp -i"                          # confirm before overwriting something
-      alias df='df -h'                          # human-readable sizes
-      alias free='free -m'                      # show sizes in MB
-      alias np='nano -w PKGBUILD'
-      alias more=less
+    PS1="❲$COMPNAME$GIT_INFO❳ $CURRENT_PATH\n$END"
 
-      xhost +local:root > /dev/null 2>&1
+    fi
 
-      complete -cf sudo
+    alias ls='ls --color=auto'
+    alias grep='grep --colour=auto'
+    alias egrep='egrep --colour=auto'
+    alias fgrep='fgrep --colour=auto'
+  else
+    if [[ ${EUID} == 0 ]] ; then
+      # show root@ when we don't have colors
+      PS1='\u@\h \W \$ '
+    else
+      PS1='\u@\h \w \$ '
+    fi
+  fi
+
+  unset use_color safe_term match_lhs sh
+
+  alias cp="cp -i"                          # confirm before overwriting something
+  alias df='df -h'                          # human-readable sizes
+  alias free='free -m'                      # show sizes in MB
+  alias np='nano -w PKGBUILD'
+  alias more=less
+
+  xhost +local:root > /dev/null 2>&1
+
+  complete -cf sudo
 
 # Bash won't get SIGWINCH if another process is in the foreground.
 # Enable checkwinsize so that bash will check the terminal size when
@@ -162,15 +162,24 @@ export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1
 
 [[ -f /usr/share/git/completion/git-completion.bash ]] && source /usr/share/git/completion/git-completion.bash
 [[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
+[[ -f .local/share/alacritty/configure-colors.sh ]] && source .local/share/alacritty/configure-colors.sh
+
+
 
 ###
 # ALIASES
 ###
+
 alias .bashrc='vim $HOME/.bashrc'
 alias .bash_profile='vim $HOME/.bash_profile'
-
 alias killport="kill_port"
-alias alacri="configure_alacritty"
+
+####
+# ALACRITTY theme config alias
+####
+
+alias alacri=configure_alacritty
+
 ###
 # GIT aliases
 ###
@@ -185,7 +194,6 @@ alias rem='remaster'
 alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
 
 # Functions
-
 
 learn() {
   local GREEN="\e[32m";
@@ -277,32 +285,6 @@ attach() {
   fi
 }
 
-configure_alacritty() {
-  local color;
-  local dayNight;
-  local alacritty_dir=$HOME/.config/alacritty
-  local configfile=${alacritty_dir}/alacritty.yml
-
-  cat ${alacritty_dir}/base.yml > $configfile
-  if (( $# == 1 )); then
-    dayNight=$1
-    export DAY_NIGHT=$1
-  fi
-
-  # lazy configuration
-  case ${dayNight} in
-    "night")
-      color="tango"
-      ;;
-    "day")
-      color="paper"
-      ;;
-  esac
-
-  if [ $color ];  then
-    cat ${alacritty_dir}/colors/${color}.yml >> $configfile
-  fi
-}
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

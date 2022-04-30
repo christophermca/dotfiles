@@ -188,7 +188,6 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
-set $BackgroundImage "/home/christophermca/Pictures/tweaked_wallpapers/long_cityscape6_clean.png"
 set $Locker convert "/home/christophermca/Pictures/tweaked_wallpapers/long_cityscape6_lock.png"  \
    -gravity Center \
    -background black \
@@ -302,16 +301,13 @@ for_window [window_role="Bluetooth"] floating enable
 ##
 
 exec --no-startup-id xrandr --output DP-2 --auto --scale 2 --dpi 96 --right-of eDP-1
-# exec --no-startup-id feh --no-fehbg --bg-center $BackgroundImage --fill black
+exec --no-startup-id ~/.fehbg &
 
 # Picom window composer
 # This handle displaying bluring and transparency
 # configuration found @ .config/picom/picom.conf
 
 exec --no-startup-id picom -b --no-fading-openclose --experimental-backends
-
-exec --no-startup-id /usr/local/etc/theme-switcher/theme-switcher.sh
-
 
 ###
 # System settings
@@ -328,7 +324,6 @@ exec --no-startup-id /usr/lib/geoclue-2.0/demos/where-am-i
 
 #exec --no-startup-id redshift -l $(curl -s "https://location.services.mozilla.com/v1/geolocate?key=geoclue" | awk 'OFS=":" {print $3,$5}' | tr -d ',}')
 exec --no-startup-id redshift
-# exec --no-startup-id * * * * * /usr/local/etc/theme-switcher/theme-switcher.sh
 
 
 ###
@@ -349,6 +344,3 @@ exec --no-startup-id blueman-applet
 # Gnome bluetooth tray applet
 # exec --no-startup-id blueberry-tray
 
-
-
-### trial

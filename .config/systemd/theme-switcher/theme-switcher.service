@@ -1,0 +1,17 @@
+[Unit]
+Description=Change Theme based on sunrise/sunset
+Wants=display-manager.service update-gtk-theme.service
+After=network.target graphical-session.target
+Before=update-gtk-theme.service
+
+[Service]
+Type=oneshot
+EnvironmentFile=/home/christophermca/.config/theme-switcher/environment.env
+User=christophermca
+WorkingDirectory=/home/christophermca/
+ExecStartPre=/home/christophermca/.local/share/alacritty/configure-colors.sh
+ExecStart=!/home/christophermca/.local/theme-switcher/theme-switcher.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

@@ -15,8 +15,9 @@ if [ ! -v $SSH_AGENT_PID ]; then
   eval "$(ssh-agent -s)" >> /dev/null
 fi
 
-export GOPATH=$HOME/go
-export RUBY=$HOME/.local/share/gem/ruby/3.0.0
+[[ -f ~/.profile ]] && . ~/.profile
+[[ -f ~/.bashrc ]] && . ~/.bashrc
+[[ -f ~/.bin/attach.bash ]] && . ~/.bin/attach.bash
 
 # PATH
 export PATH="/usr/bin:/usr/sbin:/bin:/sbin"
@@ -42,7 +43,4 @@ export PATH=$PATH:$RUBY/bin
    source ~/.bin/tmuxinator.bash
    alias mux=tmuxinator
  fi
-export DAY_NIGHT="day"
 
-[[ -f ~/.bashrc ]] && . ~/.bashrc
-[[ -f ~/.bin/attach.bash ]] && . ~/.bin/attach.bash
