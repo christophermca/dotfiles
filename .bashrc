@@ -214,9 +214,9 @@ learn() {
 
   if (( $# == 1 )); then
     [[ -d ~/Repos/_learning/$1 ]] && found_subject $1 || report_error $1
-    echo -e  "\n"
   else
-    cd ~/Repos/_learning/
+    cd ~/Repos/_learning/ && ls
+    ## include prompt to get subject. Recursivly run through
   fi
 }
 
