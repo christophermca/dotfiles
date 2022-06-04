@@ -15,6 +15,7 @@
 !.tmux.conf
 !.inputrc
 !.workrc
-!.config/systemd/user
+!.config/systemd/user/*
+!.local/theme-switcher/*
 
 .config/alacritty/**/*
