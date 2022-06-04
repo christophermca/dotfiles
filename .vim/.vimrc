@@ -383,7 +383,7 @@ nmap <leader>gl  <plug>Speyside
 omap <leader>gl  <plug>Speyside
 endif
 
-if maparg('<leader>gy', 'n') ==# ''
+if maparg('<leader>gt', 'n') ==# ''
 xmap <leader>gt  <plug>ToggleLuminance
 vmap <leader>gt  <plug>ToggleLuminance
 nmap <leader>gt  <plug>ToggleLuminance
