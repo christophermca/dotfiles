@@ -1,4 +1,4 @@
-#! /bin/bash
+#! /bin/sh
 
 # NOTE to log cron `journalctl -xb -u cronie`
 
@@ -6,13 +6,12 @@
 # readarray -d : -t strarr <<< "$latLng"
 
 echo "____THEME-switcher____"
-WORKING_DIRECTORY=".local/theme-switcher"
+THEME_SWITCHER_DIRECTORY=".local/theme-switcher"
 
 # sets DAY_NIGHT
-source $WORKING_DIRECTORY/get-sunrise-sunset.sh
+# source $THEME_SWITCHER_DIRECTORY/get-sunrise-sunset.sh
 
-echo "____DAY_NIGHT___ " $DAY_NIGHT
-if [[ -n $DAY_NIGHT ]]; then
-  . $WORKING_DIRECTORY/update-theme.sh
+if [ -n $DAY_NIGHT ]; then
+  . $THEME_SWITCHER_DIRECTORY/update-theme.sh
 fi
 

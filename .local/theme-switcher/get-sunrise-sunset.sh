@@ -1,23 +1,39 @@
-#! /bin/bash
+#! /bin/sh
 
-redshift=$(redshift -p)
-is_nighttime=$(echo $redshift | grep -o -e 'Period\: Night')
+lookup_day_or_night=$(redshift -vp | grep -oP '(?<=Period: )\w+$|(?<=Period: )\w+(?=\))$')
 
-if [[ -n ${is_nighttime} ]]; then
-  temp='night'
+if [ $lookup_day_or_night = 'Night' ]; then
+  current='night'
 else
-  temp='day'
+  current='day'
 fi
+  current='night'
+
 
 save_configuration() {
-  current=$(cat .config/theme-switcher/mode)
-  echo "is ${current} != ${temp}"
-
-  if [[ ${current} != ${temp} ]]; then
-    echo $temp > .config/theme-switcher/mode
-    declare -g -x DAY_NIGHT=$temp
+  echo 'findme__--_' $USER $LOGNAME
+  local readonly dayNight_from_file=$(cat /var/lib/theme-switcher/mode)
+  if [[ -z $DAY_NIGHT ]]; then
+    echo DAY_NIGHT is not set
   fi
 
+  echo "is $DAY_NIGHT != ${current}"
+
+  if [[ ${dayNight_from_file} != ${current} ]]; then
+
+    # TODO clean up this "set-it-and-forget-it" approach
+    declare -g -x DAY_NIGHT=$current
+    declare -g -p DAY_NIGHT > .config/theme-switcher/day_night
+
+    # HOLD until all uses of mode are updated to the new path
+    echo $DAY_NIGHT > .config/theme-switcher/mode
+
+
+    # NOTE this won't work without root access
+    # Do we want to require root access?
+    echo $DAY_NIGHT > /var/lib/theme-switcher/mode
+
+  fi
 }
 
 

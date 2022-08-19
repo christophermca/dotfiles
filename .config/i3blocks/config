@@ -34,7 +34,9 @@ signal=1
 SUBSCRIBE=1
 USE_ALSA_NAME=0
 LONG_FORMAT=${SYMB}${VOL}%
-MUTED_COLOR=#c97080
+# MUTED_COLOR=#c97080
+# MUTED_COLOR=#cc8000
+MUTED_COLOR=#ab5500
 
 [time]
 command=date '+%b %d.%Y _ %H:%M'

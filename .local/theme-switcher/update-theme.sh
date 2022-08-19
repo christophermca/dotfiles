@@ -2,19 +2,23 @@
 
 echo "__UPDATE_THEME__"
 # Fallback to saved config value
-if [[ -z $DAY_NIGHT ]]; then
-  DAY_NIGHT=$(cat .config/theme-switcher/mode)
+CONFIG_PATH=".config/theme-switcher/mode"
+
+if [[ -z $DAY_NIGHT && -f $CONFIG_PATH ]]; then
+  DAY_NIGHT=$(cat $CONFIG_PATH)
   echo From File: $DAY_NIGHT
 fi
 
 if [[ $DAY_NIGHT = "day" ]]; then
    feh --bg-center \
-      --image-bg '#e8e8e9' \
-      -- $HOME/Pictures/tweaked_wallpapers/daylight.png
+       --image-bg '#e8e8e9' \
+       -- $HOME/Pictures/tweaked_wallpapers/daylight.png
 elif [[ $DAY_NIGHT = "night" ]]; then
    feh --bg-center \
-      --image-bg 'black' \
-      -- $HOME/Pictures/tweaked_wallpapers/long_cityscape6_clean.png
+       --image-bg 'black' \
+       -- $HOME/Pictures/tweaked_wallpapers/long_cityscape6_clean.png
+else
+  echo mode $DAY_NIGHT is not valid; exit 1;
 fi
 
 # Update Terminal Colors

@@ -22,12 +22,14 @@ if &term =~ '256color'
 endif
 
 set background=dark
+
 " if spsy is set try and use it
 if exists("$spsy")
   let g:SpeysideDefaultLuminence = $spsy
 else
-  let g:SpeysideDefaultLuminence = 1
+  let g:SpeysideDefaultLuminence = 2
 endif
+
 colorscheme speyside
 set cursorline
 
@@ -389,6 +391,13 @@ vmap <leader>gt  <plug>ToggleLuminance
 nmap <leader>gt  <plug>ToggleLuminance
 omap <leader>gt  <plug>ToggleLuminance
 endif
+
+if maparg('<leader>gc', 'n') ==# ''
+xmap <leader>gc  <plug>CycleLuminance
+vmap <leader>gc  <plug>CycleLuminance
+nmap <leader>gc  <plug>CycleLuminance
+omap <leader>gc  <plug>CycleLuminance
+endif
 "}}}
 
 " FZF {{{
@@ -401,6 +410,6 @@ imap <c-x><c-f> <plug>(fzf-complete-path)
 imap <c-x><c-j> <plug>(fzf-complete-file-ag)
 imap <c-x><c-l> <plug>(fzf-complete-line)
 "}}}
-"
+
 
 " vim: fdm=marker foldlevelstart=-1 foldlevel=0 foldminlines=1

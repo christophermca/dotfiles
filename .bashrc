@@ -246,7 +246,7 @@ remaster() {
     if [[ "$CURRENTBRANCH" != "master" ]]; then
       git checkout master
       git reset --hard upstream/master
-      git push origin master --no-verify
+      git push origin master
       git checkout $CURRENTBRANCH
       git pull --rebase upstream master
     else
@@ -259,7 +259,7 @@ attach() {
   if type "tmux" > /dev/null; then
 
     local SESSION=$1
-    #TODO should I convert to unix code \e[00m or use tput?
+    # TODO should I convert to unix code \e[00m or use tput?
     local readonly GREEN=$(tput setaf 2)
     local readonly NORMAL=$(tput sgr0)
 
