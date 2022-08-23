@@ -7,7 +7,7 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 export QT_AUTO_SCREEN_SCALE_FACTOR=1
 export RUBY=$HOME/.local/share/gem/ruby/3.0.0
 
-export ALACRITTY_USE_SYSTEM_THEME=0
+export ALACRITTY_USE_SYSTEM_THEME=1
 
 [ -f .config/theme-switcher/day_night ] && source .config/theme-switcher/day_night
 # is_day_or_night=$(cat .config/theme-switcher/mode)
