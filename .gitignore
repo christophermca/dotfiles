@@ -3,6 +3,7 @@
 !.bashrc
 !.bash_profile
 !.profile
+!.__rc.bash
 
 # track .vim/ excluding netrw history
 !.vim/**/*
