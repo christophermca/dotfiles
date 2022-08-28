@@ -8,7 +8,6 @@ else
   current='day'
 fi
 
-
 save_configuration() {
   local readonly dayNight_from_file=$(cat .config/theme-switcher/mode)
   if [[ -z $DAY_NIGHT ]]; then
