@@ -3,7 +3,7 @@
 !.bashrc
 !.bash_profile
 !.profile
-!.__rc.bash
+!.__rc/*
 
 # track .vim/ excluding netrw history
 !.vim/**/*
@@ -17,6 +17,5 @@
 !.inputrc
 !.workrc
 !.config/systemd/user/*
+!.config/alacritty/**/*
 !.local/theme-switcher/*
-
-.config/alacritty/**/*

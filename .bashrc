@@ -154,6 +154,6 @@ ex ()
   fi
 }
 
-[[ -f .__rc.bash ]] && source .__rc.bash
+[[ -f .__rc/.bashrc ]] && source .__rc/.bashrc
 
 
