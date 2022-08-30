@@ -1,12 +1,15 @@
 ###
-# SOURCE
+# SOURCE {{{
 ###
 [[ -f /usr/share/git/completion/git-completion.bash ]] && source /usr/share/git/completion/git-completion.bash
 [[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
 [[ -f .local/share/alacritty/configure-colors.sh ]] && source .local/share/alacritty/configure-colors.sh
+[[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+ #}}}
 
 ###
-# ALIASES
+# ALIASES {{{
 ###
 
 alias .bashrc='vim $HOME/.bashrc'
@@ -32,8 +35,10 @@ alias rebs='git rebase --skip'
 alias fix='vim `git diff --name-only | uniq | xargs`'
 alias rem='remaster'
 alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
-
-# Functions
+      #}}}
+###
+# Functions {{{
+###
 
 learn() {
   local GREEN="\e[32m";
@@ -124,15 +129,17 @@ attach() {
     fi
   fi
 }
+        #}}}
+###
+# EXPORTS {{{
+###
 
-
-# better yaourt colors
+# better yaourt colors {{{
 export YAOURT_COLORS="nb=1:pkg=1:ver=1;32:lver=1;45:installed=1;42:grp=1;34:od=1;41;5:votes=1;44:dsc=0:other=1;35"
 #}}}
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#}}}
 
 # vim: fdm=marker foldlevelstart=1 foldlevel=0
 
