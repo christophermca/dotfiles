@@ -1,11 +1,9 @@
 #!/bin/bash
 echo '_____THEME-switcher-update-gtk______'
 
-# Fallback to saved config value -- used for calling script manually.
-CONFIG_PATH=".config/theme-switcher/mode"
-
-if [[ -z $DAY_NIGHT && -f $CONFIG_PATH ]]; then
-  DAY_NIGHT=$(cat $CONFIG_PATH)
+. shared-variables
+if [[ -z $DAY_NIGHT && -f $THEME_SWITCHER_MODE_PATH ]]; then
+  DAY_NIGHT=$(cat $THEME_SWITCHER_MODE_PATH)
   echo From File: $DAY_NIGHT
 fi
 
@@ -18,11 +16,11 @@ reset_keys() {
   fi
 }
 
-if [[ $DAY_NIGHT = "day" ]]; then
+if [[ $DAY_NIGHT = $DAY_MODE ]]; then
   reset_keys
   CURSOR_THEME="Qogir-manjaro"
   THEME_NAME="Matcha-azul"
-elif [[ $DAY_NIGHT = "night" ]]; then
+elif [[ $DAY_NIGHT = $NIGHT_MODE ]]; then
   reset_keys
   CURSOR_THEME="Qogir-manjaro-dark"
   THEME_NAME="Matcha-dark-azul"

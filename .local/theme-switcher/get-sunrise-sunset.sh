@@ -1,8 +1,6 @@
 #! /bin/sh
 
-# constants
-DAY_MODE='day'
-NIGHT_MODE='night'
+. shared-variables.sh
 
 lookup_day_or_night=$(redshift -vp | grep -oP '(?<=Period: )\w+$|(?<=Period: )\w+(?=\))$')
 
@@ -14,7 +12,7 @@ fi
 current=$DAY_MODE
 
 save_configuration() {
-  local readonly dayNight_from_file=$(cat .config/theme-switcher/mode)
+  local readonly dayNight_from_file=$(cat $THEME_SWITCHER_MODE_PATH)
 
   echo "is $dayNight_from_file != ${current}"
 
@@ -23,11 +21,11 @@ save_configuration() {
     # TODO clean up this "set-it-and-forget-it" approach
 
     # HOLD until all uses of mode are updated to the new path
-    if [[ ! -f  .config/theme-switcher/mode ]]; then
-      touch .config/theme-switcher/mode
+    if [[ ! -f  $THEME_SWITCHER_MODE_PATH ]]; then
+      touch $THEME_SWITCHER_MODE_PATH
     fi
 
-    echo $current > .config/theme-switcher/mode
+    echo $current > $THEME_SWITCHER_MODE_PATH
   fi
 }
 

@@ -2,10 +2,10 @@
 
 echo "__UPDATE_THEME__"
 # Fallback to saved config value
-CONFIG_PATH=".config/theme-switcher/mode"
+. shared-variables.sh
 
-if [[ -z $DAY_NIGHT && -f $CONFIG_PATH ]]; then
-  DAY_NIGHT=$(cat $CONFIG_PATH)
+if [[ -z $DAY_NIGHT && -f $THEME_SWITCHER_MODE_PATH ]]; then
+  DAY_NIGHT=$(cat $HER_MODE_PATH)
   echo From File: $DAY_NIGHT
 fi
 
