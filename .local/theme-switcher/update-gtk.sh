@@ -1,9 +1,9 @@
 #!/bin/bash
 echo '_____THEME-switcher-update-gtk______'
 
-. shared-variables
-if [[ -z $DAY_NIGHT && -f $THEME_SWITCHER_MODE_PATH ]]; then
-  DAY_NIGHT=$(cat $THEME_SWITCHER_MODE_PATH)
+. /shared-variables
+if [[ -z $DAY_NIGHT && -f $DAY_NIGHT_MODE_PATH ]]; then
+  DAY_NIGHT=$(cat $DAY_NIGHT_MODE_PATH)
   echo From File: $DAY_NIGHT
 fi
 
