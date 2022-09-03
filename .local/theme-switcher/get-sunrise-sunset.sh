@@ -7,6 +7,7 @@ if [ $lookup_day_or_night = $NIGHT_MODE ]; then
 else
   current=$DAY_MODE
 fi
+  # current=$NIGHT_MODE
 
 save_configuration() {
   local -r day_night_mode=$(cat $DAY_NIGHT_MODE_PATH)
@@ -22,6 +23,7 @@ save_configuration() {
     fi
 
     echo $current > $DAY_NIGHT_MODE_PATH
+    DAY_NIGHT=$current
   fi
 }
 

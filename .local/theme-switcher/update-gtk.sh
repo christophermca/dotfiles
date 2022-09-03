@@ -1,10 +1,9 @@
 #!/bin/bash
-echo '_____THEME-switcher-update-gtk______'
+echo "__UPDATE_THEME_KIT"
+source .local/theme-switcher/shared-variables.sh
 
-. /shared-variables
-if [[ -z $DAY_NIGHT && -f $DAY_NIGHT_MODE_PATH ]]; then
-  DAY_NIGHT=$(cat $DAY_NIGHT_MODE_PATH)
-  echo From File: $DAY_NIGHT
+if [[ -z $DAY_NIGHT ]]; then
+  exit 0
 fi
 
 CURRENT_CURSOR=$(xfconf-query -c xsettings -p /Gtk/CursorThemeName)

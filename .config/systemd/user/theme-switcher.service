@@ -6,7 +6,6 @@ Before=update-gtk-theme.service
 
 [Service]
 Type=oneshot
-EnvironmentFile=%h/.config/theme-switcher/environment.env
 WorkingDirectory=%h
 ExecStartPre=%h/.local/share/alacritty/configure-colors.sh
 ExecStart=!%h/.local/theme-switcher/theme-switcher.sh

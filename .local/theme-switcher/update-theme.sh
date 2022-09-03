@@ -1,19 +1,18 @@
 #!/bin/bash
 
 echo "__UPDATE_THEME__"
-# Fallback to saved config value
 source .local/theme-switcher/shared-variables.sh
 
-if [[ -z $DAY_NIGHT && -f $DAY_NIGHT_MODE_PATH ]]; then
-  DAY_NIGHT=$(cat $DAY_NIGHT_MODE_PATH)
-  echo From File: $DAY_NIGHT
+if [[ -z $DAY_NIGHT ]]; then
+  echo "__UPDATE_THEME__No_Change"
+  exit 0
 fi
 
-if [[ $DAY_NIGHT = "day" ]]; then
+if [[ $DAY_NIGHT = $DAY_MODE ]]; then
    feh --bg-center \
        --image-bg '#e8e8e9' \
        -- $HOME/Pictures/tweaked_wallpapers/daylight.png
-elif [[ $DAY_NIGHT = "night" ]]; then
+elif [[ $DAY_NIGHT = $NIGHT_MODE ]]; then
    feh --bg-center \
        --image-bg 'black' \
        -- $HOME/Pictures/tweaked_wallpapers/long_cityscape6_clean.png

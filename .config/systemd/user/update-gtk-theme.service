@@ -7,10 +7,8 @@ After=graphical-session.target theme-switcher.service
 Type=dbus
 BusName=org.xfce.Xfconf
 WorkingDirectory=%h
-EnvironmentFile=%h/.config/theme-switcher/environment.env
 ExecStartPre=/bin/echo "||||| Start update-gtk||||"
 ExecStart=!%h/.local/theme-switcher/update-gtk.sh
-ExecStop=/bin/echo "Result: " $SERVICE_RESULT, "EXIT_STATUS" $EXIT_STATUS
 ExecStopPost=/bin/echo "||||||End update-gtk|||||"
 ; ExecStopPost=!i3-msg restart
 
