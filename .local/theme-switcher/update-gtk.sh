@@ -3,7 +3,12 @@ echo "__UPDATE_THEME_KIT"
 source .local/theme-switcher/shared-variables.sh
 
 if [[ -z $DAY_NIGHT ]]; then
-  exit 0
+  if [[ -f $DAY_NIGHT_MODE_PATH ]]; then
+    DAY_NIGHT=$(cat $DAY_NIGHT_MODE_PATH)
+  else
+    echo "Day_night is not set"
+    exit 0
+  fi
 fi
 
 CURRENT_CURSOR=$(xfconf-query -c xsettings -p /Gtk/CursorThemeName)
@@ -26,7 +31,6 @@ elif [[ $DAY_NIGHT = $NIGHT_MODE ]]; then
 fi
 
 # logging
-echo __should change gtk?__ [ "$CURRENT_CURSOR" !=  "$CURSOR_THEME"]
 if [[ $CURRENT_CURSOR != $CURSOR_THEME ]]; then
   echo "__should change gtk: YES__";
 else
@@ -36,7 +40,7 @@ fi
 # change gtk theme if needed
  if [[ -n $CURSOR_THEME && -n  $THEME_NAME ]]; then
    if [[ $CURRENT_CURSOR != $CURSOR_THEME ]]; then
-   echo '--__ Hi Bom! - will try to update theme'
+   echo "__UPDATE_THEME_KIT___UPDATING_THEME..."
    xfconf-query -c xsettings -p /Gtk/CursorThemeName -s $CURSOR_THEME > /dev/null
    xfconf-query -c xsettings -p /Net/ThemeName -s $THEME_NAME > /dev/null
    i3-msg restart
