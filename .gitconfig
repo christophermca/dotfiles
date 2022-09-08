@@ -1,0 +1,39 @@
+[web]
+   browser = chrome
+[push]
+   default = simple
+[alias]
+   st = status
+   co = checkout
+   graph = '!git log --oneline --graph --abbrev-commit --pretty=format:"%Cgreen %h %Creset%s %n%an - %cr %n%n"'
+   mismatch = ls-files -u
+   del = branch -D
+   remdel = push origin --no-verify --delete
+   updel = push upstream --no-verify --delete
+   pullr = pull --rebase
+   b = branch
+   unstage = reset HEAD --
+   sup = submodule update --init --recursive --remote --rebase
+   susy = submodule sync
+[help]
+  browser = chrome
+  autocorrect = 1
+[core]
+  editory = vim
+  fileMode = false
+  autocrlf = input
+  safecrlf = false
+  excludesfile = /Users/chrismcadams/.gitignore_global
+  eol = lf
+  gitproxy = gitproxy for github
+[diff]
+  tool = vimdiff
+[difftool]
+  prompt = true
+[color]
+  ui = true
+[user]
+  name = Christopher MCAdams
+  email = mca.christopher@gmail.com
+[url "git@github.com:"]
+  insteadOf = https://github.com

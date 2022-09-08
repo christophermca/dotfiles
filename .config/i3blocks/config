@@ -1,0 +1,41 @@
+# i3blocks configuration file
+#
+# The i3blocks man page describes the usage of the binary,
+# and its website describes the configuration:
+#
+#     https://vivien.github.io/i3blocks
+
+# Global properties
+separator=true
+separator_block_width=15
+markup=pango
+
+# Blocks
+[weather]
+command=curl -Ss 'https:/wttr.in/south_lyon?O&T&Q&u' | cut -c 16- | head -2 | xargs echo
+color=#A4C2c9
+interval=3600
+
+[battery]
+command=$SCRIPTS_DIR/custom/battery/battery
+color=#BBFBCF
+interval=10
+
+[presentation]
+command=$SCRIPTS_DIR/custom/presentation-mode
+DISABLED_COLOR=#777777
+color=#c19e2a
+interval=1
+
+[volume-pulseaudio]
+command=$SCRIPTS_DIR/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio
+interval=persist
+signal=1
+SUBSCRIBE=1
+USE_ALSA_NAME=0
+LONG_FORMAT=${SYMB}${VOL}%
+MUTED_COLOR=#ab8888
+
+[time]
+command=date '+%b %d.%Y _ %H:%M'
+interval=5

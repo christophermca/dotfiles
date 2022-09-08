@@ -1,0 +1,21 @@
+#!/bin/bash
+
+presentation_mode=$(xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode)
+
+if [[ $button -eq 1 ]]; then
+ xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -T
+fi
+
+icon=""
+
+if $presentation_mode;  then
+  echo "$icon: "
+  echo "$icon: "
+else
+  echo "$icon: "
+  echo "$icon: "
+  echo $DISABLED_COLOR
+fi
+
+exit 0
+

@@ -1,0 +1,16 @@
+[Unit]
+Description=Update Gtk Theme
+Wants=display-manager.service
+After=graphical-session.target theme-switcher.service
+
+[Service]
+Type=dbus
+BusName=org.xfce.Xfconf
+WorkingDirectory=%h
+ExecStartPre=/bin/echo "||||| Start update-gtk||||"
+ExecStart=!%h/.local/theme-switcher/update-gtk.sh
+ExecStopPost=/bin/echo "||||||End update-gtk|||||"
+ExecStopPost=!i3-msg restart
+
+[Install]
+WantedBy=default.target

@@ -1,0 +1,21 @@
+*
+
+!.bashrc
+!.bash_profile
+!.profile
+!.__rc/*
+
+# track .vim/ excluding netrw history
+!.vim/**/*
+.vim/.netrwhist
+
+!.gitignore
+!.gitconfig
+!.gitmodules
+!.github
+!.tmux.conf
+!.inputrc
+!.workrc
+!.config/systemd/user/*
+!.config/alacritty/**/*
+!.local/theme-switcher/*

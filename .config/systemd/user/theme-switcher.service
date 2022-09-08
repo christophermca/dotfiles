@@ -1,0 +1,16 @@
+[Unit]
+Description=Change Theme based on sunrise/sunset
+Wants=display-manager.service update-gtk-theme.service
+After=network.target graphical-session.target
+Before=update-gtk-theme.service
+
+[Service]
+Type=oneshot
+WorkingDirectory=%h
+ExecStartPre=%h/.local/share/alacritty/configure-colors.sh
+ExecStart=!%h/.local/theme-switcher/theme-switcher.sh
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
+; WantedBy=default.target
