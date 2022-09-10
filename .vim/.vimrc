@@ -145,7 +145,9 @@ set softtabstop=2 " Number of spaces in tab when editing
 set expandtab " Tabs are spaces
 
 "Show hidden chars
-set list listchars=tab:«-»,trail:·
+set lcs=tab:>-,trail:-
+" set listchars=tab:«-»,
+" set listchars=tab:«-»,trail:·
 "}}}
 " status bar + command line {{{
 " ****************
