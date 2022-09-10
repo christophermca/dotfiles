@@ -31,8 +31,8 @@ else
 fi
 
 if [[ -n $ALACRITTY_USE_SYSTEM_THEME && $ALACRITTY_USE_SYSTEM_THEME -eq 1 ]]; then
-# if [[ -f .local/share/alacritty/configure-colors.sh ]]; then
-#	 source .local/share/alacritty/configure-colors.sh
-#	 configure_alacritty $DAY_NIGHT
-# fi
+ if [[ -f .local/share/alacritty/configure-colors.sh ]]; then
+	 source .local/share/alacritty/configure-colors.sh
+	 configure_alacritty $DAY_NIGHT
+ fi
 fi
