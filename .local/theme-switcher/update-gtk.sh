@@ -1,6 +1,8 @@
 #!/bin/bash
 echo "__UPDATE_THEME_KIT"
 source .local/theme-switcher/shared-variables.sh
+CURSOR_THEME="Qogir-manjaro"
+THEME_NAME="Matcha-azul"
 
 if [[ -z $DAY_NIGHT ]]; then
   if [[ -f $DAY_NIGHT_MODE_PATH ]]; then
@@ -39,11 +41,11 @@ fi
 
 # change gtk theme if needed
  if [[ -n $CURSOR_THEME && -n  $THEME_NAME ]]; then
-   if [[ $CURRENT_CURSOR != $CURSOR_THEME && false ]]; then
+   if [[ $CURRENT_CURSOR != $CURSOR_THEME ]]; then
    echo "__UPDATE_THEME_KIT___UPDATING_THEME..."
    xfconf-query -c xsettings -p /Gtk/CursorThemeName -s $CURSOR_THEME > /dev/null
    xfconf-query -c xsettings -p /Net/ThemeName -s $THEME_NAME > /dev/null
-   #i3-msg restart
+   i3-msg restart
  fi
 fi
 
