@@ -1,8 +1,7 @@
 #!/bin/bash
 echo "__UPDATE_THEME_KIT"
 source .local/theme-switcher/shared-variables.sh
-CURSOR_THEME="Qogir-manjaro"
-THEME_NAME="Matcha-azul"
+source .config/theme-switcher/themes.sh
 
 if [[ -z $DAY_NIGHT ]]; then
   if [[ -f $DAY_NIGHT_MODE_PATH ]]; then
@@ -24,12 +23,12 @@ reset_keys() {
 
 if [[ $DAY_NIGHT = $DAY_MODE ]]; then
   reset_keys
-  CURSOR_THEME="Qogir-manjaro"
-  THEME_NAME="Matcha-azul"
+  CURSOR_THEME=$DAY_THEME_CURSOR
+  THEME_NAME=$DAY_THEME_NAME
 elif [[ $DAY_NIGHT = $NIGHT_MODE ]]; then
   reset_keys
-  CURSOR_THEME="Qogir-manjaro-dark"
-  THEME_NAME="Matcha-dark-azul"
+  CURSOR_THEME=$NIGHT_THEME_CURSOR
+  THEME_NAME=$NIGHT_THEME_NAME
 fi
 
 # logging
