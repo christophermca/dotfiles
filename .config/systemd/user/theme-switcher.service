@@ -7,10 +7,11 @@ Before=update-gtk-theme.service
 [Service]
 Type=oneshot
 WorkingDirectory=%h
+EnvironmentFile=%h/.config/theme-switcher/environment.env
 ExecStartPre=%h/.local/share/alacritty/configure-colors.sh
 ExecStart=!%h/.local/theme-switcher/theme-switcher.sh
 Restart=on-failure
 
 [Install]
-WantedBy=multi-user.target
-; WantedBy=default.target
+; WantedBy=multi-user.target
+WantedBy=default.target

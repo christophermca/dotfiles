@@ -10,7 +10,13 @@ if [[ -z $DAY_NIGHT ]]; then
   exit 0
 fi
 
-if [[ $DAY_NIGHT == $DAY_MODE ]]; then
+echo "FINDME:::: DAY_NIGHT is currently set to *$DAY_NIGHT*\
+  ||variables||\
+  file=$(cat $DAY_NIGHT_MODE_PATH),\
+  day_mode=$DAY_MODE,\
+  night_mode=$NIGHT_MODE"
+
+  if [[ $DAY_NIGHT == $DAY_MODE ]]; then
    feh --bg-center \
        --image-bg $DAY_THEME_COLOR \
        -- $DAY_THEME_IMAGE
