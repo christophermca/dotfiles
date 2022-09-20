@@ -22,7 +22,6 @@ set $up k
 set $right l
 floating_modifier $mod
 
-
 ####
 # Font
 ####
@@ -181,8 +180,10 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+###
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
+####
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # exit i3 (logs you out of your X session)
