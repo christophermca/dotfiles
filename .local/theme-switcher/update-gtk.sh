@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "__UPDATE_THEME_KIT"
-source .local/theme-switcher/shared-variables.sh
+source .local/theme-switcher/src/shared-variables.sh
 source .config/theme-switcher/themes.sh
 
 if [[ -z $DAY_NIGHT ]]; then

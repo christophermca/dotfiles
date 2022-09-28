@@ -1,5 +1,6 @@
 #! /bin/bash
-source .local/theme-switcher/shared-variables.sh
+source .local/theme-switcher/src/shared-variables.sh
+source .local/theme-switcher/src/utils/debug.sh
 
 lookup_day_or_night=$(redshift -vp | grep -oP '(?<=Period: )\w+$|(?<=Period: )\w+(?=\))$' | tr [A-Z] [a-z])
 if [[ $lookup_day_or_night == $RDSHF_DAY ]]; then
@@ -9,19 +10,10 @@ elif [[ $lookup_day_or_night == $RDSHF_NIGHT ]]; then
 fi
 
 # DEBUG_MODE ::: used for testing to force value
-debug_mode() {
-  echo "__DEBUG_MODE_SWITCH__"
-  local -r current_mode=$(cat $DAY_NIGHT_MODE_PATH)
-  if [[ $current_mode == $DAY_MODE ]]; then
-    current=$NIGHT_MODE
-  elif [[ $current_mode == $NIGHT_MODE ]]; then
-    current=$DAY_MODE
-  fi
-  echo "INSIDE::: " $current
-}
+# DEBUG_THEME_SWITCHER=1
 
 save_configuration() {
-  if [[ $DEBUG_THEME_SWITCHER -eq 1 ]]; then
+  if [[ -n $DEBUG_THEME_SWITCHER ]]; then
     debug_mode
   else
     local -r day_night_mode=$(cat $DAY_NIGHT_MODE_PATH)

@@ -1,8 +1,9 @@
 #!/bin/bash
 
 echo "__UPDATE_THEME__"
-source .local/theme-switcher/shared-variables.sh
+source .local/theme-switcher/src/shared-variables.sh
 source .config/theme-switcher/themes.sh
+source .local/theme-switcher/src/utils/debug.sh
 
 
 if [[ -z $DAY_NIGHT ]]; then
@@ -10,13 +11,9 @@ if [[ -z $DAY_NIGHT ]]; then
   exit 0
 fi
 
-echo "FINDME:::: DAY_NIGHT is currently set to *$DAY_NIGHT*\
-  ||variables||\
-  file=$(cat $DAY_NIGHT_MODE_PATH),\
-  day_mode=$DAY_MODE,\
-  night_mode=$NIGHT_MODE"
 
-  if [[ $DAY_NIGHT == $DAY_MODE ]]; then
+
+if [[ $DAY_NIGHT == $DAY_MODE ]]; then
    feh --bg-center \
        --image-bg $DAY_THEME_COLOR \
        -- $DAY_THEME_IMAGE
