@@ -9,7 +9,7 @@ elif [[ $lookup_day_or_night == $RDSHF_NIGHT ]]; then
   current=$NIGHT_MODE
 fi
 
-# DEBUG_MODE ::: used for testing to force value
+# DEBUG_MODE ::: force themes to always update
 # DEBUG_THEME_SWITCHER=1
 
 save_configuration() {

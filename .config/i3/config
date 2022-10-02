@@ -153,7 +153,6 @@ bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -R
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle && pkill -RTMIN+1 i3blocks
-
 bindsym XF86WLAN exec [ $(nmcli radio wifi) == 'enabled' ] && nmcli radio wifi off || nmcli radio wifi on;
 
 
@@ -164,7 +163,6 @@ bindsym $mod+Return exec --no-startup-id alacritty
 bindsym $mod+Shift+q kill
 
 # toggle presentation mode
-# display a notification or something
 bindsym Mod1+Shift+p exec --no-startup-id xfconf-query -c xfce4-power-manager -p /xfce4-power-manager/presentation-mode -T
 
 ###
@@ -188,8 +186,11 @@ bindsym $mod+Shift+r restart
 ####
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
+###
+# Note This is not needed when using xfce4 and i3
+###
+
 # exit i3 (logs you out of your X session)
-# not needed when using xfce4 and i3
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
@@ -198,7 +199,7 @@ set $Locker convert "/home/christophermca/Pictures/tweaked_wallpapers/long_citys
    -background black \
    -extent 2560x1440 \
    RGB:- \
-   | i3lock -e --raw 2560x1440:rgb --image /dev/stdin  && sleep 1
+   | i3lock -e --raw 2560x1440:rgb --image /dev/stdin && sleep 1
 
 # redshift modes
 bindsym $mod+n mode "$mode_redshift"
