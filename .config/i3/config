@@ -153,6 +153,17 @@ bindsym XF86AudioRaiseVolume exec amixer -q -D pulse sset Master 5%+ && pkill -R
 bindsym XF86AudioLowerVolume exec amixer -q -D pulse sset Master 5%- && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMute exec amixer -q -D pulse sset Master toggle && pkill -RTMIN+1 i3blocks
 bindsym XF86AudioMicMute exec pactl set-source-mute 1 toggle && pkill -RTMIN+1 i3blocks
+
+###
+# Media Keys
+###
+bindsym Mod1+XF86Favorites exec playerctl play-pause
+bindsym Mod1+Home exec playerctl previous
+bindsym Mod1+End exec playerctl next
+
+####
+#  Wireless signal
+####
 bindsym XF86WLAN exec [ $(nmcli radio wifi) == 'enabled' ] && nmcli radio wifi off || nmcli radio wifi on;
 
 
