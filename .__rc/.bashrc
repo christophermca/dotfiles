@@ -16,6 +16,8 @@ alias .bashrc='vim $HOME/.bashrc'
 alias edit_rc='vim $HOME/.__rc.bash'
 alias .bash_profile='vim $HOME/.bash_profile'
 alias killport="kill_port"
+alias ls='ls --color=auto'
+alias grep='grep --colour=auto'
 
 ####
 # ALACRITTY theme config alias

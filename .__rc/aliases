@@ -1,0 +1,30 @@
+###
+# ALIASES
+###
+
+alias .bashrc='vim $HOME/.bashrc'
+alias edit_rc='vim $HOME/.__rc.bash'
+alias .bash_profile='vim $HOME/.bash_profile'
+alias killport="kill_port"
+alias ls='ls --color=auto'
+alias grep='grep --colour=auto'
+
+####
+# ALACRITTY theme config alias
+####
+
+alias alacri=configure_alacritty
+
+###
+# GIT aliases
+###
+
+alias graph='git log --oneline --graph --abbrev-commit --pretty=format:"%Cgreen %h %Creset%s %n%an - %cr %n%n"'
+alias _graph='dfi log --oneline --graph --abbrev-commit --pretty=format:"%Cgreen %h %Creset%s %n%an - %cr %n%n"'
+alias reb='git rebase'
+alias rebc='git add . && git rebase --continue'
+alias rebs='git rebase --skip'
+alias fix='vim `git diff --name-only | uniq | xargs`'
+alias rem='remaster'
+alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
+
