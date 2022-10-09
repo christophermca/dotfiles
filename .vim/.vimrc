@@ -29,7 +29,7 @@ if exists("$spsy")
 else
   let g:SpeysideDefaultLuminence = 2
 endif
-let g:SpeysideMode=".config/theme-switcher/mode"
+let g:SpeysideMode="$HOME/.config/theme-switcher/mode"
 colorscheme speyside
 set cursorline
 
@@ -403,7 +403,7 @@ endif
 "}}}
 
 " FZF {{{
-set rtp+=/home/linuxbrew/.linuxbrew/opt/fzf
+set rtp+=/home/.config/theme-switcher/mode,
 nmap <f7> :FZF <CR>
 
 " Insert mode completion
