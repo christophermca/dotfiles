@@ -29,6 +29,7 @@ if exists("$spsy")
 else
   let g:SpeysideDefaultLuminence = 2
 endif
+
 let g:SpeysideMode="$HOME/.config/theme-switcher/mode"
 colorscheme speyside
 set cursorline
