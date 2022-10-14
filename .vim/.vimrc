@@ -222,7 +222,7 @@ nnoremap <leader>l :ls<CR>:b<space>
 " Quick change directory
 
 "JSON prettyify and validate
-com! FormatJSON '<,'>!python -m json.tool
+com! FormatJSON :!<!python -m json.tool
 map <leader>jn :FormatJSON<cr>
 
 map <leader>de :'<,'>!python -m base64 -d<CR>
