@@ -17,6 +17,8 @@ learn() {
   local RED="\e[31m";
   local NORMAL="\e[0m";
 
+  [[ ! -d ~/Repos/_learning ]] && mkdir ~/Repos/_learning
+
   report_error() {
     echo -e "\"${RED}$1${NORMAL}\" is not an option\n\n${GREEN}Available Options:"
     ls -1 ~/Repos/_learning/
@@ -30,7 +32,7 @@ learn() {
   };
 
   if (( $# == 1 )); then
-    [[ -d ~/Repos/_learning/$1 ]] && found_subject $1 || report_error $1
+    found_subject $2 || report_error $1
   else
     cd ~/Repos/_learning/ && ls
     ## include prompt to get subject. Recursivly run through
