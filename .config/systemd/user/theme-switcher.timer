@@ -2,8 +2,8 @@
 Description=Theme switcher timer
 
 [Timer]
-OnBootSec=1min
-OnUnitActiveSec=1min
+OnStartupSec=0
+;OnUnitActiveSec=1min
 OnCalendar=*-*-* *:*:00
 ; Unit=theme-switcher.target
 Unit=theme-switcher.service
