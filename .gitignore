@@ -3,9 +3,11 @@
 !.bashrc
 !.bash_profile
 !.profile
+# track __rc excluding `tmp/` folder
 !.__rc/*
+.__rc/tmp/*
 
-# track .vim/ excluding netrw history
+# track .vim/ excluding `netrw` history
 !.vim/**/*
 .vim/.netrwhist
 
