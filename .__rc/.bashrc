@@ -4,40 +4,14 @@
 [[ -f /usr/share/git/completion/git-completion.bash ]] && source /usr/share/git/completion/git-completion.bash
 [[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
 [[ -f .local/share/alacritty/configure-colors.sh ]] && source .local/share/alacritty/configure-colors.sh
+[[ -f "$HOME/Repos/_learning/.local/learn.bash" ]] && source $HOME/Repos/_learning/.local/learn.bash
 [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
  #}}}
 
 # Functions {{{
 ###
 
-learn() {
-  local GREEN="\e[32m";
-  local RED="\e[31m";
-  local NORMAL="\e[0m";
-
-  [[ ! -d ~/Repos/_learning ]] && mkdir ~/Repos/_learning
-
-  report_error() {
-    echo -e "\"${RED}$1${NORMAL}\" is not an option\n\n${GREEN}Available Options:"
-    ls -1 ~/Repos/_learning/
-  };
-
-  found_subject() {
-    echo -e "Lets Learn ${GREEN}$1${NORMAL}!\n"
-    cd ~/Repos/_learning/$1
-    echo "Projects:"
-    ls .
-  };
-
-  if (( $# == 1 )); then
-    found_subject $2 || report_error $1
-  else
-    cd ~/Repos/_learning/ && ls
-    ## include prompt to get subject. Recursivly run through
-  fi
-}
 
 kill_port() {
   if (( $# == 1 )); then

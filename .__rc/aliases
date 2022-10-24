@@ -3,7 +3,7 @@
 ###
 
 alias .bashrc='vim $HOME/.bashrc'
-alias edit_rc='vim $HOME/.__rc.bash'
+alias _rcbash='vim $HOME/.__rc/.bashrc'
 alias .bash_profile='vim $HOME/.bash_profile'
 alias killport="kill_port"
 alias ls='ls --color=auto'
