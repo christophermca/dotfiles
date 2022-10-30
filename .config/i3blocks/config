@@ -30,7 +30,7 @@ interval=1
 [theme-switcher]
 command=$SCRIPTS_DIR/custom/night-shift
 DISABLED_COLOR=#777777
-color=#446768bb #RGBA
+color=#446768
 interval=1
 
 

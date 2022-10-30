@@ -1,10 +1,16 @@
 source $HOME/.local/theme-switcher/src/shared-variables.sh
 source $HOME/.config/theme-switcher/themes.sh
 
-ALACRITTY_USE_SYSTEM_THEME=$(cat $HOME/.profile | grep ALACRITTY_USE_SYSTEM_THEME | grep -o [[:digit:]])
+is_lock_theme() {
+  if [[ -n $LOCK_THEME_SWITCHER  ]]; then
+    echo "__--__--_THEME LOCKED_--__--___"
+    exit 33
+  fi
+}
 
 update_background() {
-  if [ -z $1 ]; then
+is_lock_theme
+if [ -z $1  ]; then
     echo "error not passed DAY_NIGHT"
     return
   fi
@@ -23,7 +29,8 @@ update_background() {
 }
 
 update_terminal_colors() {
-  # Update Terminal Colors
+is_lock_theme
+# Update Terminal Colors
   if [[ -n $ALACRITTY_USE_SYSTEM_THEME && $ALACRITTY_USE_SYSTEM_THEME -eq 1 ]]; then
    if [[ -f $HOME/.local/share/alacritty/configure-colors.sh ]]; then
      source $HOME/.local/share/alacritty/configure-colors.sh

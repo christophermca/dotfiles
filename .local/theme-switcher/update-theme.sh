@@ -1,9 +1,6 @@
 #!/bin/bash
 
 echo "__UPDATE_THEME__"
-source .local/theme-switcher/src/shared-variables.sh
-source .config/theme-switcher/themes.sh
-source .local/share/theme-switcher/utils/debug.sh
 source .local/share/theme-switcher/toggle-theme.sh
 
 if [[ -z $DAY_NIGHT ]]; then
@@ -11,7 +8,7 @@ if [[ -z $DAY_NIGHT ]]; then
   exit 0
 fi
 
-update_background
+update_background $DAY_NIGHT
 
 # Update Terminal Colors
 if [[ $ALACRITTY_USE_SYSTEM_THEME -eq 1 ]]; then
@@ -20,4 +17,4 @@ else
   echo "__SHOULD___FOLLOW SYSTEM_SUNRISE/SUNSET__NO"
 fi
 
-update_terminal_colors
+update_terminal_colors $DAY_NIGHT
