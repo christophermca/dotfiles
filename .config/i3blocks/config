@@ -27,11 +27,12 @@ DISABLED_COLOR=#777777
 color=#c19e2a
 interval=1
 
-[night-shift]
+[theme-switcher]
 command=$SCRIPTS_DIR/custom/night-shift
 DISABLED_COLOR=#777777
-color=#446768bb
+color=#446768bb #RGBA
 interval=1
+
 
 [volume-pulseaudio]
 command=$SCRIPTS_DIR/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio
