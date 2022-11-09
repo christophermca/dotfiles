@@ -16,6 +16,7 @@ filetype plugin indent on
 syntax enable " enable syntax processing
 set autoindent
 set t_Co=256
+let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css']
 
 if &term =~ '256color'
   set t_ut=
@@ -72,7 +73,7 @@ set ttimeoutlen=20
 " choose font by gui
 if has("gui_running")
 if has("gui_gtk2")
-  set guifont=Inconsolata\ 12
+  set guifont=Firecode\ 8.0
 elseif has("gui_macvim")
   set guifont=Menlo\ Regular:h12
 elseif has("gui_win32")

@@ -2,11 +2,12 @@
 # SOURCE {{{
 ###
 [[ -f /usr/share/git/completion/git-completion.bash ]] && source /usr/share/git/completion/git-completion.bash
-[[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
+# [[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
 [[ -f .local/share/alacritty/configure-colors.sh ]] && source .local/share/alacritty/configure-colors.sh
 [[ -f "$HOME/Repos/_learning/.local/learn.bash" ]] && source $HOME/Repos/_learning/.local/learn.bash
 [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[[ -r /usr/share/bash-completion/bash_completion ]] && source /usr/share/bash-completion/bash_completion
+# [[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
  #}}}
 
 # Functions {{{
