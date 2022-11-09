@@ -2,7 +2,12 @@
 source .local/theme-switcher/src/shared-variables.sh
 source .local/theme-switcher/src/utils/debug.sh
 
-lookup_day_or_night=$(redshift -vp | grep -oP '(?<=Period: )\w+$|(?<=Period: )\w+(?=\))$' | tr [A-Z] [a-z])
+if [[ -n $LOCK_THEME_SWITCHER ]]; then
+  echo "__--__--_THEME LOCKED_--__--___"
+  exit 0
+fi
+
+lookup_day_or_night=$(redshift -vp | grep -oP '(?<=Period: )\w+$|(?<=Period: )\w+(?=\))$' | tr [A-Z] [a-z]) # tr API tr from, to
 if [[ $lookup_day_or_night == $RDSHF_DAY ]]; then
   current=$DAY_MODE
 elif [[ $lookup_day_or_night == $RDSHF_NIGHT ]]; then

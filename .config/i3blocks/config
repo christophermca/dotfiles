@@ -29,10 +29,9 @@ interval=1
 
 [theme-switcher]
 command=$SCRIPTS_DIR/custom/night-shift
-DISABLED_COLOR=#777777
 color=#446768
+DISABLED_COLOR=#777777
 interval=1
-
 
 [volume-pulseaudio]
 command=$SCRIPTS_DIR/i3blocks-contrib/volume-pulseaudio/volume-pulseaudio
