@@ -73,7 +73,7 @@ set ttimeoutlen=20
 " choose font by gui
 if has("gui_running")
 if has("gui_gtk2")
-  set guifont=Firecode\ 8.0
+  set guifont=Firacode\ Retina\ 8
 elseif has("gui_macvim")
   set guifont=Menlo\ Regular:h12
 elseif has("gui_win32")
