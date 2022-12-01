@@ -181,15 +181,18 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
+bindsym $mod+F11 exec --no-startup-id pgrep btop && i3-msg '[class="btop"] focus' || alacritty --class btop -e btop -p 2
+
 ###
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 ####
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-###
-# Note This is not needed when using xfce4 and i3
-###
+####
+### Note:
+#   The below command is is not needed when using xfce4 and i3
+####
 
 # exit i3 (logs you out of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
@@ -293,7 +296,7 @@ for_window [all] title_window_icon on
 for_window [all] border pixel 2
 for_window [class="Spotify"] border pixel 1 move --no-auto-back-and-forth container to workspace $ws10
 for_window [class="obsidian"] border pixel 1 move --no-auto-back-and-forth container to workspace $ws10
-
+for_window [class="btop"] move --no-auto-back-and-forth container to workspace $ws9
 for_window [window_type="dialog"] floating enable
 for_window [window_type="utility"] floating enable
 for_window [window_role="About"] floating enable
