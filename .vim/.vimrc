@@ -44,6 +44,7 @@ set ttimeoutlen=20
 " AUTOCMDS {{{
  set autoread
  autocmd BufWritePre * :silent! :call <SID>Respace()
+
 call coc#rpc#stop()
 
  augroup checkfileupdate
