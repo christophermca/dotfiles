@@ -17,7 +17,6 @@ syntax enable " enable syntax processing
 set autoindent
 set t_Co=256
 let g:coc_global_extensions = ['coc-tsserver', 'coc-json', 'coc-css']
-
 if &term =~ '256color'
   set t_ut=
 endif
@@ -45,6 +44,7 @@ set ttimeoutlen=20
 " AUTOCMDS {{{
  set autoread
  autocmd BufWritePre * :silent! :call <SID>Respace()
+call coc#rpc#stop()
 
  augroup checkfileupdate
    autocmd WinEnter * :silent :checktime

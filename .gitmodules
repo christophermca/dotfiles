@@ -96,6 +96,3 @@
 [submodule ".config/i3blocks/scripts/i3blocks-contrib"]
 	path = .config/i3blocks/scripts/i3blocks-contrib
 	url = https://github.com/vivien/i3blocks-contrib
-[submodule ".vim/pack/mca/start/coc.nvim"]
-	path = .vim/pack/mca/start/coc.nvim
-	url = git@github.com:neoclide/coc.nvim.git
