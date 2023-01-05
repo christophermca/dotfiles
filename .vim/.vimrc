@@ -45,7 +45,6 @@ set ttimeoutlen=20
  set autoread
  autocmd BufWritePre * :silent! :call <SID>Respace()
 
-call coc#rpc#stop()
 
  augroup checkfileupdate
    autocmd WinEnter * :silent :checktime
@@ -177,6 +176,7 @@ set nuw=4
 "}}}
 " mouse {{{
 set mouse=vh " Automatically enable mouse usage
+set ttymouse=sgr
 set mousehide " Hide the mouse cursor while typing
 "}}}
 " searching {{{

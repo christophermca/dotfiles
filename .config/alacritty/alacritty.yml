@@ -112,10 +112,16 @@ window:
 font:
   # Normal (roman) font face
   normal:
-    family: "FiraCode"
+    family: "Source Code Pro"
+    family: "Fira Code"
+    # family: "Red Hat Mono" # Taller font compared to `Source code pro`
 
+    ###
     # The `style` can be specified to pick a specific face.
-    style: Retina
+    ###
+
+    style: Regular
+    # style: Medium
 
   # Bold font face
   bold:

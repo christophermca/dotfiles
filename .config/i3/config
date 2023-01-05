@@ -27,11 +27,17 @@ floating_modifier $mod
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Fira Code Retina 8
 
-# This font is widely installed, provides lots of unicode glyphs, right-to-left
-# text rendering and scalability on retina/hidpi displays (thanks to pango).
+####
+# LIST of fonts
+#
+# the last uncommented option will be selected
+###
+
 font pango:Fira Code Retina 8
+# font pango:Source Code Pro Regular 8
+# font pango:Red Hat Mono Regular 8
+
 
 ####
 # i3WM configuration - controls and movement
@@ -318,7 +324,7 @@ client.unfocused        #333333 #222222 #888888 #292d2e   #222222
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
-client.background       #C6D3E2
+client.background       #000000
 
 ####
 # AUTOSTART
