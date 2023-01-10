@@ -1,7 +1,7 @@
 export EDITOR=/usr/bin/vim
 export GOPATH=$HOME/go
 export RUBY=$HOME/.local/share/gem/ruby/3.0.0
-export PATH=$PATH:$GOPATH:$RUBY/bin:/usr/local/go/bin
+export PATH=$PATH:$GOPATH:$RUBY/bin:/usr/local/go/bin:$HOME/.local/bin
 
 export GDK_SCALE=2
 export GDK_DPI_SCALE=0.5

@@ -113,7 +113,6 @@ font:
   # Normal (roman) font face
   normal:
     family: "Source Code Pro"
-    family: "Fira Code"
     # family: "Red Hat Mono" # Taller font compared to `Source code pro`
 
     ###

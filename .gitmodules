@@ -96,3 +96,11 @@
 [submodule ".config/i3blocks/scripts/i3blocks-contrib"]
 	path = .config/i3blocks/scripts/i3blocks-contrib
 	url = https://github.com/vivien/i3blocks-contrib
+[submodule "black"]
+	path = .vim/pack/mca/opt/black
+  branch = stable
+	url = https://github.com/psf/black.git
+[submodule "/home/christophermca/.vim/pack/mca/opt/black"]
+	path = /home/christophermca/.vim/pack/mca/opt/black
+	url = git@github.com:psf/black.git
+	branch = stable
