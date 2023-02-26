@@ -175,8 +175,10 @@ set number " show line numbers
 set nuw=4
 "}}}
 " mouse {{{
-set mouse=vh " Automatically enable mouse usage
-set ttymouse=sgr
+" set mouse=vh " Automatically enable mouse usage
+" set ttymouse=sgr
+set mouse=nvi
+set ttymouse=
 set mousehide " Hide the mouse cursor while typing
 "}}}
 " searching {{{
@@ -277,11 +279,7 @@ nmap <leader>ec :call ToggleColorEdit()<CR>
 
 " Coffee
 
-" Mocha
-nmap <leader>r :call <SID>MochaTest()<CR>
-nmap <leader>e :call <SID>MochaDebugTest()<CR>
 nmap <silent> <leader>1 :call <SID>Console()<CR>
-nmap <silent> <leader>o :call <SID>Focus()<CR>
 
 " ____SPLIT CONTROLS
 nmap <C-h> <C-w>h
@@ -292,11 +290,6 @@ nmap <C-j> <C-w>j
 nnoremap - :call <SID>OpenView()<CR>
 "}}}
 " {{{ FUNCTIONS
-function! <SID>Focus()
-  :mksession ~/session.vim<CR>
-  :wincmd o<CR>
-endfunction
-
 function! <SID>Respace()
  let l = line(".")
  let c = col(".")
@@ -307,14 +300,6 @@ endfunction
 
 function! <SID>Console()
 :!
-endfunction
-
-function! <SID>MochaDebugTest()
-:!mocha debug %
-endfunction
-
-function! <SID>MochaTest()
-:!clear && NODE_ENV=test mocha %
 endfunction
 
 function! ToggleColorEdit()
@@ -383,18 +368,18 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 "}}}
 
 " speyside {{{
-if maparg('<leader>gl', 'n') ==# ''
-xmap <leader>gl  <plug>Speyside
-vmap <leader>gl  <plug>Speyside
-nmap <leader>gl  <plug>Speyside
-omap <leader>gl  <plug>Speyside
-endif
+" if maparg('<leader>gl', 'n') ==# ''
+" xmap <leader>gl  <plug>Speyside
+" vmap <leader>gl  <plug>Speyside
+" nmap <leader>gl  <plug>Speyside
+" omap <leader>gl  <plug>Speyside
+" endif
 
 if maparg('<leader>gt', 'n') ==# ''
-xmap <leader>gt  <plug>ToggleLuminance
-vmap <leader>gt  <plug>ToggleLuminance
-nmap <leader>gt  <plug>ToggleLuminance
-omap <leader>gt  <plug>ToggleLuminance
+xmap <leader>gt  <plug>ToggleLuminance2
+vmap <leader>gt  <plug>ToggleLuminance2
+nmap <leader>gt  <plug>ToggleLuminance2
+omap <leader>gt  <plug>ToggleLuminance2
 endif
 
 if maparg('<leader>gc', 'n') ==# ''
