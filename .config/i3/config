@@ -199,8 +199,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 ### Note:
 #   The below command is is not needed when using xfce4 and i3
 ####
-
-# exit i3 (logs you out of your X session)
+# exit i3 (logout of your X session)
 # bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # Set shut down, restart and locking features
