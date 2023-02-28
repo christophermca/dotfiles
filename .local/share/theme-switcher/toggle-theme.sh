@@ -1,15 +1,9 @@
 source $HOME/.local/theme-switcher/src/shared-variables.sh
 source $HOME/.config/theme-switcher/themes.sh
-
-is_lock_theme() {
-  if [[ -n $LOCK_THEME_SWITCHER  ]]; then
-    echo "__--__--_THEME LOCKED_--__--___"
-    exit 33
-  fi
-}
+source .local/theme-switcher/src/utils/is_theme_locked.sh
 
 update_background() {
-is_lock_theme
+is_theme_locked
 if [ -z $1  ]; then
     echo "error not passed DAY_NIGHT"
     return
@@ -29,7 +23,7 @@ if [ -z $1  ]; then
 }
 
 update_terminal_colors() {
-is_lock_theme
+is_theme_locked
 # Update Terminal Colors
   if [[ -n $ALACRITTY_USE_SYSTEM_THEME && $ALACRITTY_USE_SYSTEM_THEME -eq 1 ]]; then
    if [[ -f $HOME/.local/share/alacritty/configure-colors.sh ]]; then
