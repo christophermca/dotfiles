@@ -8,8 +8,8 @@
 [[ -f "$HOME/Repos/_learning/.local/learn.bash" ]] && source $HOME/Repos/_learning/.local/learn.bash
 [[ -s "$NVM_DIR/nvm.sh" ]] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [[ -r /usr/share/bash-completion/bash_completion ]] && source /usr/share/bash-completion/bash_completion
-# [[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
- #}}}
+[[ -s "$NVM_DIR/bash_completion" ]] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+### }}}
 
 # Functions {{{
 ###
@@ -54,11 +54,15 @@ attach() {
   if type "tmux" > /dev/null; then
 
     local SESSION=$1
+
     # TODO should I convert to unix code \e[00m or use tput?
     local readonly GREEN=$(tput setaf 2)
     local readonly NORMAL=$(tput sgr0)
 
+    # if no properties passed to function
     if [ $# -eq 0 ]; then
+
+      # test if tmux is running
       tmux ls >> /dev/null 2>&1
       if [ $? -eq 0 ]; then
         printf "${GREEN}list:________\n${NORMAL}";
@@ -68,6 +72,7 @@ attach() {
         $(tmux attach -d -t $SESSION)
       else
         printf "${GREEN}No sessions created\n${NORMAL}"
+        read -t 1 -p "starting tmux ... | press ANY key to cancel" || tmux
       fi
 
     else
@@ -80,7 +85,7 @@ attach() {
   fi
 }
         #}}}
-###
+
 # EXPORTS {{{
 ###
 

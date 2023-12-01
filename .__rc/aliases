@@ -27,4 +27,4 @@ alias rebs='git rebase --skip'
 alias fix='vim `git diff --name-only | uniq | xargs`'
 alias rem='remaster'
 alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
-
+alias atch='attach'

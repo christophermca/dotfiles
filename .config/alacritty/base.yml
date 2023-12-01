@@ -47,7 +47,7 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 0
+    x: 1
     y: 0
 
   # Spread additional padding evenly around the terminal content.
@@ -62,7 +62,9 @@ window:
   # Values for `decorations` (macOS only):
   #     - transparent: Title bar, transparent background and title bar buttons
   #     - buttonless: Title bar, transparent background and no title bar buttons
-  decorations: full
+  decorations: 'none'
+
+  #Decorate theme
 
   # Startup Mode (changes require restart)
   #
@@ -73,13 +75,13 @@ window:
   #
   # Values for `startup_mode` (macOS only):
   #   - SimpleFullscreen
-  #startup_mode: Windowed
+  # startup_mode: Windowed
 
   # Window title
-  title: Alacritty
+  title: ''
 
   # Allow terminal applications to change Alacritty's window title.
-  #dynamic_title: true
+  dynamic_title: false
 
   # Window class (Linux/BSD only):
   # class:
@@ -89,7 +91,7 @@ window:
     #general: Alacritty
 
   # GTK theme variant (Linux/BSD only)
-  #
+
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
   gtk_theme_variant: None
@@ -98,7 +100,7 @@ window:
    auto_scroll: true
   # Maximum number of lines in the scrollback buffer.
   # Specifying '0' will disable scrolling.
-  #history: 10000
+  history: 10000
 
   # Scrolling distance multiplier.
   #multiplier: 3
@@ -154,7 +156,7 @@ font:
     style: Bold Italic
 
   # Point size
-  size: 8.0
+  size: 12.0
 
   # Offset is the extra space around each character. `offset.y` can be thought
   # of as modifying the line spacing, and `offset.x` as modifying the letter
@@ -245,6 +247,7 @@ window.opacity: 0.95
 
   # When set to `true`, selected text will be copied to the primary clipboard.
   #save_to_clipboard: false
+
 
 cursor:
   # Cursor style
@@ -391,8 +394,57 @@ mouse:
 # And optionally:
 #
 # - `mods` (see key bindings)
+#
 #mouse_bindings:
 #  - { mouse: Middle, action: PasteSelection }
+#    - Command
+#    - Control
+#    - Option
+#    - Super
+#    - Shift
+#    - Alt
+#
+#    Multiple `mods` can be combined using `|` like this:
+#       `mods: Control|Shift`.
+#    Whitespace and capitalization are relevant and must match the example.
+#
+# - `mode`: Indicate a binding for only specific terminal reported modes
+#
+#    This is mainly used to send applications the correct escape sequences
+#    when in different modes.
+#
+#    - AppCursor
+#    - AppKeypad
+#    - Alt
+#
+#    A `~` operator can be used before a mode to apply the binding whenever
+#    the mode is *not* active, e.g. `~Alt`.
+#
+# Bindings are always filled by default, but will be replaced when a new
+# binding with the same triggers is defined. To unset a default binding, it can
+# be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
+# a no-op if you do not wish to receive input characters for that binding.
+key_bindings:
+    # (Windows, Linux, and BSD only)
+  - { key: Q,        mods: Control, action: Quit            }
+  - { key: V,        mods: Control|Shift, action: Paste            }
+  - { key: C,        mods: Control|Shift, action: Copy             }
+  # - { key: Insert,   mods: Shift,         action: PasteSelection   }
+  # - { key: Key0,     mods: Control,       action: ResetFontSize    }
+  # - { key: Equals,   mods: Control,       action: IncreaseFontSize }
+  # - { key: Add,      mods: Control,       action: IncreaseFontSize }
+  # - { key: Subtract, mods: Control,       action: DecreaseFontSize }
+  # - { key: Minus,    mods: Control,       action: DecreaseFontSize }
+
+  # - { key: Paste,                    action: Paste                            }
+  # - { key: Copy,                     action: Copy                             }
+  # - { key: L,         mods: Control, action: ClearLogNotice                   }
+  # - { key: L,         mods: Control, chars: "\x0c"                            }
+  # - { key: PageUp,    mods: Shift,   action: ScrollPageUp,   mode: ~Alt       }
+  # - { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
+  # - { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
+  # - { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
+
 
 
 #debug:
