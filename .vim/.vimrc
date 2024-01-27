@@ -30,7 +30,7 @@ else
   let g:SpeysideDefaultLuminence = 2
 endif
 
-let g:SpeysideMode="$HOME/.config/theme-switcher/mode"
+let g:PathToSpeysideMode="$HOME/.config/theme-switcher/mode"
 colorscheme speyside
 set cursorline
 
@@ -368,18 +368,18 @@ nmap <silent> <leader>ak :ALEPrevious<cr>
 "}}}
 
 " speyside {{{
-" if maparg('<leader>gl', 'n') ==# ''
-" xmap <leader>gl  <plug>Speyside
-" vmap <leader>gl  <plug>Speyside
-" nmap <leader>gl  <plug>Speyside
-" omap <leader>gl  <plug>Speyside
-" endif
+if maparg('<leader>gl', 'n') ==# ''
+xmap <leader>gl  <plug>Speyside
+vmap <leader>gl  <plug>Speyside
+nmap <leader>gl  <plug>Speyside
+omap <leader>gl  <plug>Speyside
+endif
 
 if maparg('<leader>gt', 'n') ==# ''
-xmap <leader>gt  <plug>ToggleLuminance2
-vmap <leader>gt  <plug>ToggleLuminance2
-nmap <leader>gt  <plug>ToggleLuminance2
-omap <leader>gt  <plug>ToggleLuminance2
+xmap <leader>gt  <plug>ToggleLuminance
+vmap <leader>gt  <plug>ToggleLuminance
+nmap <leader>gt  <plug>ToggleLuminance
+omap <leader>gt  <plug>ToggleLuminance
 endif
 
 if maparg('<leader>gc', 'n') ==# ''
