@@ -11,4 +11,3 @@ export PATH=$PATH:$GOPATH:$RUBY:$CARGO:/bin:/usr/local/go/bin:$HOME/.local/bin
 # export QT_AUTO_SCREEN_SCALE_FACTOR=1
 # export QT_FONT_DPI=96
 # export ALACRITTY_USE_SYSTEM_THEME=1
-
