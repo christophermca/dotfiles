@@ -4,6 +4,6 @@
 [[ -f /etc/bash.bashrc ]] && source /etc/bash.bashrc # include systemwide .bashrc
 [[ -f ~/.__rc/.bashrc ]] && source ~/.__rc/.bashrc
 
-[[ -f ~/.__rc/ps1_config ]] && source ~/.__rc/ps1_config
-[[ -f ~/.__rc/aliases ]] && source ~/.__rc/aliases
-[[ -f ~/.__rc/functions ]] && source ~/.__rc/functions
+[[ -f ~/.__rc/opt/ps1_config ]] && source ~/.__rc/opt/ps1_config
+[[ -f ~/.__rc/opt/aliases ]] && source ~/.__rc/opt/aliases
+[[ -f ~/.__rc/opt/functions ]] && source ~/.__rc/opt/functions
