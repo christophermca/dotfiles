@@ -5,9 +5,10 @@
 alias .bashrc='vim $HOME/.bashrc'
 alias _rcbash='vim $HOME/.__rc/.bashrc'
 alias .bash_profile='vim $HOME/.bash_profile'
-alias killport="kill_port"
 alias ls='ls --color=auto'
 alias grep='grep --colour=auto'
+alias atch='attach'
+alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
 
 ####
 # ALACRITTY theme config alias
@@ -20,11 +21,9 @@ alias alacri=configure_alacritty
 ###
 
 alias graph='git log --oneline --graph --abbrev-commit --pretty=format:"%Cgreen %h %Creset%s %n%an - %cr %n%n"'
-alias _graph='dfi log --oneline --graph --abbrev-commit --pretty=format:"%Cgreen %h %Creset%s %n%an - %cr %n%n"'
+alias ~graph='dfi log --oneline --graph --abbrev-commit --pretty=format:"%Cgreen %h %Creset%s %n%an - %cr %n%n"'
 alias reb='git rebase'
 alias rebc='git add . && git rebase --continue'
 alias rebs='git rebase --skip'
 alias fix='vim `git diff --name-only | uniq | xargs`'
 alias rem='remaster'
-alias dfi='/usr/bin/git --git-dir=$HOME/.dotfiles.git --work-tree=$HOME'
-alias atch='attach'

@@ -1,0 +1,41 @@
+#!/bin/bash
+
+####
+## KILL_PORT()
+## usage: killport <port>
+####
+handle_old_api() {
+  local readonly GREEN=$(tput setaf 2)
+  local readonly NORMAL=$(tput sgr0)
+
+  echo -e "Deprecation Warning:  kill_port is now killport"
+  echo -e "${GREEN}EXECUTING:${NORMAL} killport\n"
+  sleep 1
+  killport $1 # pass arguments to function
+}
+alias kill_port="handle_old_api" # used for historical change
+
+killport() {
+  local readonly RESET="\e[m";
+  local readonly BLUE="\e[1;34m";
+  local readonly GREY="\e[2;37m";
+  local readonly COLOR1="\e[0;33m"
+  local readonly GREEN=$(tput setaf 2)
+  local readonly NORMAL=$(tput sgr0)
+
+  if (( $# == 1 )); then
+    local PORT=$1
+    local readonly USEDPORT=$(lsof -i :$PORT);
+
+    if [[ -n $USEDPORT ]];
+    then
+      $(ps -eo pid,command | ag [n]ode | awk "{print $2}" | xargs kill -9 > /dev/null 2>&1 &)
+      echo -e "${COL_GREEN} Done!";
+    else
+      echo -e "${COL_BLUE} Port ${PORT} not in use";
+    fi
+  else
+    echo -e "${BLUE}Usage: killPort <pid>${NORMAL}"
+  fi
+}
+

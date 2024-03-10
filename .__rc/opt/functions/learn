@@ -1,0 +1,32 @@
+#!/bin/bash
+
+####
+## learn()
+## usage: learn
+####
+learn() {
+  local SOURCE_PATH="$HOME/Repos/shiny-dollop"
+  local GREEN="\e[32m";
+  local RED="\e[31m";
+  local NORMAL="\e[0m";
+
+  report_error() {
+    echo -e "\"${RED}$1${NORMAL}\" is not an option\n\n${GREEN}Available Options:"
+    ls -1 $SOURCE_PATH -I "README.md"
+  };
+
+  found_subject() {
+    echo -e "Lets Learn ${GREEN}$1${NORMAL}!\n"
+    mark="$SOURCE_PATH/$1"
+    echo $mark
+    echo "Projects:"
+    ls .
+  };
+
+  if (( $# == 1 )); then
+    [[ -d $SOURCE_PATH/$1 ]] && found_subject $1 || report_error $1
+  else
+    eval "cd $SOURCE_PATH" && ls
+    ## include prompt to get subject. Recursivly run through
+  fi
+}

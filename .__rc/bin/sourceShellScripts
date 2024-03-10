@@ -1,0 +1,8 @@
+#!/bin/bash
+
+DOT_RC_PATH="$HOME/.__rc"
+
+sourceShellScripts() {
+  [[ ! -d "$DOT_RC_PATH/opt/functions" ]] && echo "No functions directory found in $DOT_RC_PATH/opt"
+  for f in $1; do source "$DOT_RC_PATH/opt/functions/$f"; done
+}

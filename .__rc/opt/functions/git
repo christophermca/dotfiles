@@ -1,0 +1,24 @@
+#!/bin/bash
+
+####
+## remaster()
+## usage: remaster
+####
+
+remaster() {
+  local readonly CURRENTBRANCH=$(git symbolic-ref --short HEAD)
+
+  git fetch --all
+
+  if [[ -n "$CURRENTBRANCH" ]]; then
+    if [[ "$CURRENTBRANCH" != "master" ]]; then
+      git checkout master
+      git reset --hard upstream/master
+      git push origin master
+      git checkout $CURRENTBRANCH
+      git pull --rebase upstream master
+    else
+      git reset --hard upstream/master
+    fi
+  fi
+}
