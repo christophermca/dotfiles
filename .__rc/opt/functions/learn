@@ -19,6 +19,7 @@ learn() {
     echo -e "Lets Learn ${GREEN}$1${NORMAL}!\n"
     mark="$SOURCE_PATH/$1"
     echo $mark
+    cd $mark
     echo "Projects:"
     ls .
   };
