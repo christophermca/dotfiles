@@ -4,7 +4,7 @@
 # SOURCE {{{
 ###
 [[ -f /usr/share/git/completion/git-completion.bash ]] && source /usr/share/git/completion/git-completion.bash
-# [[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
+[[ -f /usr/share/git/completion/git-prompt.sh ]] && source /usr/share/git/completion/git-prompt.sh
 [[ -f .local/share/alacritty/configure-colors.sh ]] && source .local/share/alacritty/configure-colors.sh
 [[ -f .local/share/obsidian/create-project-folder.sh ]] && source .local/share/obsidian/create-project-folder.sh
 [[ -f "$HOME/Repos/_learning/.local/learn.bash" ]] && source $HOME/Repos/_learning/.local/learn.bash
