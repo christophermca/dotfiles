@@ -23,7 +23,6 @@
   fileMode = false
   autocrlf = input
   safecrlf = false
-  excludesfile = /Users/chrismcadams/.gitignore_global
   eol = lf
   gitproxy = gitproxy for github
 [diff]
