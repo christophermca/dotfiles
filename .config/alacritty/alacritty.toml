@@ -9,6 +9,9 @@ vi_mode_style = "Block"
 blinking = "Always"
 shape = "Block"
 
+[scrolling]
+history = 10000
+
 [env]
 TERM = "alacritty"
 
