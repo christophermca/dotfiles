@@ -1,7 +1,7 @@
 #! /bin/bash
-source .local/theme-switcher/src/shared-variables.sh
-source .local/theme-switcher/src/utils/debug.sh
-source .local/theme-switcher/src/utils/is_theme_locked.sh
+source $HOME/.local/theme-switcher/src/shared-variables.sh
+source $HOME/.local/theme-switcher/src/utils/debug.sh
+source $HOME/.local/theme-switcher/src/utils/is_theme_locked.sh
 
 
 is_theme_locked

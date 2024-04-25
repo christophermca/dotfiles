@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo "__UPDATE_THEME__"
-source .local/share/theme-switcher/toggle-theme.sh
+source $HOME/.local/share/theme-switcher/toggle-theme.sh
 
 if [[ -z $DAY_NIGHT ]]; then
   echo "__UPDATE_THEME__No_Change"

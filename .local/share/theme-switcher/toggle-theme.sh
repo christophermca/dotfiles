@@ -1,6 +1,6 @@
 source $HOME/.local/theme-switcher/src/shared-variables.sh
 source $HOME/.config/theme-switcher/themes.sh
-source .local/theme-switcher/src/utils/is_theme_locked.sh
+source $HOME/.local/theme-switcher/src/utils/is_theme_locked.sh
 
 update_background() {
 is_theme_locked

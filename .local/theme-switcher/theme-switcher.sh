@@ -1,7 +1,8 @@
 #! /bin/sh
 
 echo "____THEME-switcher____"
-THEME_SWITCHER_DIRECTORY=".local/theme-switcher"
+
+THEME_SWITCHER_DIRECTORY="$HOME/.local/theme-switcher"
 
 # DEBUG_MODE ::: Uncomment next-line to force THEME_SWITCHER to update the mode every run
 # DEBUG_THEME_SWITCHER=1
