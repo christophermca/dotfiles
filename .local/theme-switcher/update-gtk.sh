@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/bin/sh
+
 echo "__UPDATE_THEME_KIT"
 source .local/theme-switcher/src/shared-variables.sh
 source .config/theme-switcher/themes.sh

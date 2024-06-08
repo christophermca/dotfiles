@@ -1,7 +1,6 @@
-#! /bin/sh
+#!/bin/bash
 
 echo "____THEME-switcher____"
-
 THEME_SWITCHER_DIRECTORY="$HOME/.local/theme-switcher"
 
 # DEBUG_MODE ::: Uncomment next-line to force THEME_SWITCHER to update the mode every run
@@ -10,8 +9,7 @@ THEME_SWITCHER_DIRECTORY="$HOME/.local/theme-switcher"
 # sets DAY_NIGHT
 source $THEME_SWITCHER_DIRECTORY/get-sunrise-sunset.sh
 
-
+echo "_____${DAY_NIGHT}____"
 if [ -n $DAY_NIGHT ]; then
-  . $THEME_SWITCHER_DIRECTORY/update-theme.sh
+  sh $THEME_SWITCHER_DIRECTORY/update-theme.sh
 fi
-

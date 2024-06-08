@@ -5,12 +5,12 @@ After=network.target graphical-session.target
 Before=update-gtk-theme.service
 
 [Service]
-Type=oneshot
+Type=simple
 WorkingDirectory=%h
-ProtectHome=yes
+; ProtectHome=yes ;fix this I would like to use this
 EnvironmentFile=%h/.config/theme-switcher/environment.env
 ExecStartPre=%h/.local/share/alacritty/configure-colors.sh
-ExecStart=!%h/.local/theme-switcher/theme-switcher.sh
+ExecStart=%h/.local/theme-switcher/theme-switcher.sh
 ; Restart=on-failure
 
 [Install]

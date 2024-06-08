@@ -1,6 +1,10 @@
+#!/bin/sh
+
 source $HOME/.local/theme-switcher/src/shared-variables.sh
+
 source $HOME/.config/theme-switcher/themes.sh
 source $HOME/.local/theme-switcher/src/utils/is_theme_locked.sh
+
 
 update_background() {
 is_theme_locked
@@ -9,6 +13,7 @@ if [ -z $1  ]; then
     return
   fi
 
+  command -v feh || return
   if [[ $1 == $DAY_MODE ]]; then
      feh --bg-center \
          --image-bg $DAY_THEME_COLOR \

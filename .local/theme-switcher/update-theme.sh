@@ -1,14 +1,17 @@
-#!/bin/bash
+#!/bin/sh
 
 echo "__UPDATE_THEME__"
-source $HOME/.local/share/theme-switcher/toggle-theme.sh
+
+if [[ -f /usr/bin/gdm ]]; then
+      source $HOME/.local/share/theme-switcher/toggle-theme-per-mode.sh
+else
+    source $HOME/.local/share/theme-switcher/toggle-theme.sh
+fi
 
 if [[ -z $DAY_NIGHT ]]; then
   echo "__UPDATE_THEME__No_Change"
   exit 0
 fi
-
-update_background $DAY_NIGHT
 
 # Update Terminal Colors
 if [[ $ALACRITTY_USE_SYSTEM_THEME -eq 1 ]]; then

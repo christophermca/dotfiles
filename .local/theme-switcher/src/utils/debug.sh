@@ -1,4 +1,5 @@
-#!bin/bash
+#!bin/sh
+
 debug_mode() {
   local -r current_mode=$(cat $DAY_NIGHT_MODE_PATH)
   if [[ $current_mode == $DAY_MODE ]]; then
