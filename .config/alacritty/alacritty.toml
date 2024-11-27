@@ -1,3 +1,4 @@
+[general]
 live_config_reload = true
 
 [cursor]
@@ -53,7 +54,7 @@ mods = "Control|Shift"
 [mouse]
 hide_when_typing = true
 
-[shell]
+[terminal.shell]
 args = ["-l"]
 program = "/bin/bash"
 
@@ -72,26 +73,3 @@ lines = 26
 [window.padding]
 x = 1
 y = 0
-[colors.primary]
-background = "#eeeeee"
-foreground = "#373b41"
-
-[colors.normal]
-black = "#1d1f21"
-red = "#cc342b"
-green = "#198844"
-yellow = "#fba922"
-blue = "#3971ed"
-magenta = "#a36ac7"
-cyan = "#3971ed"
-white = "#c5c8c6"
-
-[colors.bright]
-black = "#969896"
-red = "#cc342b"
-green = "#198844"
-yellow = "#fba922"
-blue = "#3971ed"
-magenta = "#a36ac7"
-cyan = "#3971ed"
-white = "#ffffff"

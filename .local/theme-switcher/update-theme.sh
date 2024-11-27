@@ -1,5 +1,4 @@
 #!/bin/sh
-
 echo "__UPDATE_THEME__"
 
 if [[ -f /usr/bin/gdm ]]; then
