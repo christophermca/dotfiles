@@ -102,11 +102,8 @@
 	url = https://github.com/psf/black.git
 [submodule "/home/christophermca/.vim/pack/mca/opt/black"]
 	path = /home/christophermca/.vim/pack/mca/opt/black
-	url = git@github.com:psf/black.git
+	url  = git@github.com:psf/black.git
 	branch = stable
 [submodule "/home/christophermca/.vim/pack/plugins/start/rust.vim"]
 	path = /home/christophermca/.vim/pack/plugins/start/rust.vim
-	url = https://github.com/rust-lang/rust.vim
-[submodule "/home/christophermca/.vim/pack/mca/start/coc"]
-	path = /home/christophermca/.vim/pack/mca/start/coc
-	url = https://github.com/neoclide/coc.nvim.git
+	url  = https://github.com/rust-lang/rust.vim
