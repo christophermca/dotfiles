@@ -40,7 +40,7 @@ else
 fi
 
 # change gtk theme if needed
- if [[ -n $CURSOR_THEME && -n  $THEME_NAME ]]; then
+ if [[ -n $CURSOR_THEME && -n $THEME_NAME ]]; then
    if [[ $CURRENT_CURSOR != $CURSOR_THEME ]]; then
    echo "__UPDATE_THEME_KIT___UPDATING_THEME..."
    xfconf-query -c xsettings -p /Gtk/CursorThemeName -s $CURSOR_THEME > /dev/null

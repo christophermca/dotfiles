@@ -10,7 +10,6 @@ WorkingDirectory=%h
 ExecStartPre=/bin/echo "||||| Start update-gtk||||"
 ExecStart=!%h/.local/theme-switcher/update-gtk.sh
 ExecStopPost=/bin/echo "||||||End update-gtk|||||"
-; ExecStopPost=!i3-msg restart
 
 [Install]
 WantedBy=default.target

@@ -1,0 +1,14 @@
+[Unit]
+Description="Monitor color mode"
+Wants=display-manager.service
+After=graphical-session.target theme-switcher.service
+
+[Service]
+Type=exec
+WorkingDirectory=%h
+EnvironmentFile=%h/.config/theme-switcher/environment.env
+ExecStartPre=%h/.local/share/alacritty/configure-colors.sh
+ExecStart=%h/.local/theme-switcher/color-mode.sh
+
+[Install]
+WantedBy=default.target
