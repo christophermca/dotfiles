@@ -1,8 +1,8 @@
 #!/bin/sh
 echo "__UPDATE_THEME__"
 
-if [[ -f /usr/bin/gdm ]]; then
-      source $HOME/.local/share/theme-switcher/toggle-theme-per-mode.sh
+if  command -v gdm &> /dev/null; then
+    source $HOME/.local/share/theme-switcher/toggle-theme-per-mode.sh
 else
     source $HOME/.local/share/theme-switcher/toggle-theme.sh
 fi
