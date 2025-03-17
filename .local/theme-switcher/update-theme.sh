@@ -2,8 +2,10 @@
 echo "__UPDATE_THEME__"
 
 if  command -v gdm &> /dev/null; then
+    echo 'up-theme: gdm'
     source $HOME/.local/share/theme-switcher/toggle-theme-per-mode.sh
 else
+    echo 'up-theme: non-gdm'
     source $HOME/.local/share/theme-switcher/toggle-theme.sh
 fi
 
@@ -15,8 +17,8 @@ fi
 # Update Terminal Colors
 if [[ $ALACRITTY_USE_SYSTEM_THEME -eq 1 ]]; then
   echo "__SHOULD___FOLLOW SYSTEM_SUNRISE/SUNSET__YES"
+  update_terminal_colors $DAY_NIGHT
 else
   echo "__SHOULD___FOLLOW SYSTEM_SUNRISE/SUNSET__NO"
 fi
 
-update_terminal_colors $DAY_NIGHT

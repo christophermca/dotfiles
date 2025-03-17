@@ -7,7 +7,7 @@ After=graphical-session.target theme-switcher.service
 Type=exec
 WorkingDirectory=%h
 EnvironmentFile=%h/.config/theme-switcher/environment.env
-ExecStart=%h/.local/theme-switcher/color-mode.sh
+ExecStart=%h/.local/theme-switcher/toggle-mode-on-signal.sh
 
 [Install]
 WantedBy=default.target
