@@ -21,7 +21,7 @@
 
 [[ -f "$HOME/.__rc/bin/sourceShellScripts" ]] && source "$HOME/.__rc/bin/sourceShellScripts"
 
-list=(git colors ex attach killport learn)
+list=(git colors ex attach killport learn r0)
 
 sourceShellScripts "${list[*]}"
 

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+####
+## r0()
+## usage: Change directory to one of the available repositories on local machine.
+####
+
+r0() {
+  local PATH_TO_REPOS="$HOME/Repos"
+  if [ $# -gt 0 ]; then
+    if [[ -d $PATH_TO_REPOS/$1 ]];then
+      cd $PATH_TO_REPOS/$1
+    else
+      echo "$PATH_TO_REPOS/$1 was not found"
+    fi
+  else
+    # Display available options.
+    #
+    # It would be great if this used something like `bash_completion` to improve usage
+
+    echo -e "Available Repos:"
+    cd $PATH_TO_REPOS && ls
+  fi
+}
+
+

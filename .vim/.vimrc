@@ -65,6 +65,8 @@ set ttimeoutlen=20
    au bufread,bufnewfile *.cson set filetype=coffee
    au bufread,bufnewfile *.json set filetype=json
    au bufread,bufnewfile *.styl set filetype=stylus
+   " Only set a specific file redshift.conf to use `lisp`
+   au bufread,bufnewfile */redshift.conf set filetype=lisp
  augroup END
 "}}}
 " FONTS  {{{
