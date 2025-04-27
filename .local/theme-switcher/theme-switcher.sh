@@ -7,9 +7,9 @@ THEME_SWITCHER_DIRECTORY="$HOME/.local/theme-switcher"
 # DEBUG_THEME_SWITCHER=1
 
 # sets DAY_NIGHT
-source $THEME_SWITCHER_DIRECTORY/get-sunrise-sunset.sh
+source $THEME_SWITCHER_DIRECTORY/bin/get-sunrise-sunset.sh
 
 echo "_____${DAY_NIGHT}____"
 if [ -n $DAY_NIGHT ]; then
-  sh $THEME_SWITCHER_DIRECTORY/update-theme.sh
+  sh $THEME_SWITCHER_DIRECTORY/bin/update-gdm.sh
 fi

@@ -8,7 +8,7 @@ Type=dbus
 BusName=org.xfce.Xfconf
 WorkingDirectory=%h
 ExecStartPre=/bin/echo "||||| Start update-gtk||||"
-ExecStart=!%h/.local/theme-switcher/update-gtk.sh
+ExecStart=!%h/.local/theme-switcher/bin/update-gtk.sh
 ExecStopPost=/bin/echo "||||||End update-gtk|||||"
 
 [Install]
