@@ -7,20 +7,67 @@
 
 r0() {
   local PATH_TO_REPOS="$HOME/Repos"
-  if [ $# -gt 0 ]; then
-    if [[ -d $PATH_TO_REPOS/$1 ]];then
-      cd $PATH_TO_REPOS/$1
-    else
-      echo "$PATH_TO_REPOS/$1 was not found"
-    fi
-  else
-    # Display available options.
-    #
-    # It would be great if this used something like `bash_completion` to improve usage
+  local NAME_OF_REPO=""
 
-    echo -e "Available Repos:"
-    cd $PATH_TO_REPOS && ls
-  fi
+  local GREEN="\e[32m";
+  local RED="\e[31m";
+  local NORMAL="\e[0m";
+
+  is_valid() {
+    [[ $NAME_OF_REPO =~ ^[a-zA-Z0-9_-]+$ ]] && found_repo $NAME_OF_REPO
+  };
+
+  list() {
+    ls $PATH_TO_REPOS
+  }
+
+  found_repo() {
+   if [[ -d $PATH_TO_REPOS/$NAME_OF_REPO ]];then
+     cd $PATH_TO_REPOS/$NAME_OF_REPO
+   else
+     echo "$PATH_TO_REPOS/$NAME_OF_REPO was not found"
+   fi
+  }
+
+  usage() {
+      echo -e "${GREEN}Usage:${NORMAL}"
+      echo -e "r0 [-l| --list] [-h| --help] <repo-name>\n"
+      echo -e "Options:"
+      echo -e "-l, --list List Available Repositories\n"
+      echo -e "-h, --help Prints usage"
+    }
+
+  handle_no_args() {
+    echo -e "${GREEN}Available Repositories:${NORMAL}\n"
+    list;
+    echo -e "\n"
+
+    usage;
+  }
+
+  local VALID_ARGS=$(getopt -o lh: --long list,help: -- "$@")
+
+  eval set -- "$VALID_ARGS"
+  while [ : ]; do
+    case "$1" in
+      -l | --list)
+        list
+        shift;
+        return 1
+        ;;
+      -h | --help)
+        echo "testing"
+        shift
+        return 1
+        ;;
+      --)
+        NAME_OF_REPO=$2
+        shift;
+        break
+        ;;
+    esac
+
+  done
+
+  [[ -n $NAME_OF_REPO ]] && is_valid $NAME_OF_REPO || handle_no_args
 }
-
-
