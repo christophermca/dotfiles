@@ -1,26 +1,162 @@
 #!/bin/bash
 
 ####
-## r0()
-## usage: Change directory to one of the available repositories on local machine.
+## r0 - Change directory to one of the available repositories on local machine.
+## usage: r0 <Optional<options>> <repository-name
 ####
 
-r0() {
-  local PATH_TO_REPOS="$HOME/Repos"
-  if [ $# -gt 0 ]; then
-    if [[ -d $PATH_TO_REPOS/$1 ]];then
-      cd $PATH_TO_REPOS/$1
-    else
-      echo "$PATH_TO_REPOS/$1 was not found"
-    fi
-  else
-    # Display available options.
-    #
-    # It would be great if this used something like `bash_completion` to improve usage
+# Single source of truth for variable.
+_configure_path() {
+  local PATH_TO_REPOS="${r0__PATH_TO_REPOS:-$HOME/Repos}"
 
-    echo -e "Available Repos:"
-    cd $PATH_TO_REPOS && ls
-  fi
+  echo $PATH_TO_REPOS
+  return 0
 }
 
+_r0_comp() {
+  local cur prev opts
+  local PATH_TO_REPOS=$(_configure_path)
+
+  COMPREPLY=()
+
+  cur="${COMP_WORDS[COMP_CWORD]}";
+  prev="${COMP_WORDS[COMP_CWORD - 1]}";
+  opts="$(ls $PATH_TO_REPOS)"
+
+  COMPREPLY=($(compgen -W "${opts}" -- "${cur}"))
+  return 0
+
+}
+
+complete -F _r0_comp r0
+
+r0() {
+  local PATH_TO_REPOS=$(_configure_path)
+  local NAME_OF_REPO=""
+  local SHOW_LIST="";
+
+  local BLUE="\e[34m";
+  local DKYELLOW="\e[33m";
+  local GREEN="\e[32m";
+  local RED="\e[31m";
+  local NORMAL="\e[0m";
+  local BOLD="\e[1m";
+
+  is_valid() {
+    if [[ $NAME_OF_REPO =~ ^[a-zA-Z0-9_-]+(\.d)?$ ]]; then
+      if [[ $NAME_OF_REPO =~ ^.*\.d$ ]]; then
+        # was passed a parent directory
+        echo -e "${BOLD}$NAME_OF_REPO${NORMAL} appears to be a parent directory"
+        list
+        found_repo
+
+      else
+        found_repo
+      fi
+    fi
+  };
+
+  ###
+  # r0.list
+  # Prints all available repos in r0__PATH_TO_REPOS
+  ###
+  list() {
+    handle_list() {
+      for g in $LIST_OF_GROUPED_DIRECTORIES; do
+        local dir_name=$g
+        echo $dir_name | grep -Po "(?<=\/)[a-zA-Z0-9_-]+\.d$"
+      done
+    }
+
+    decorate_message() {
+      local grouped_directory="${1:-none}"
+
+      if [[ -n $INCLUDE_GROUPED_FOLDERS ]]; then
+        echo -e "___ Grouped Directories ___"
+        local LIST_OF_GROUPED_DIRECTORIES=$(ls -d $PATH_TO_REPOS/*.d)
+        handle_list
+        echo -e "\n___ All other repositories ___"
+        ls $PATH_TO_REPOS -I *.d
+      else
+        ls $PATH_TO_REPOS
+      fi
+
+    }
+    decorate_message
+  }
+
+  found_repo() {
+   if [[ -d $PATH_TO_REPOS/$NAME_OF_REPO ]]; then
+     if [[ $NAME_OF_REPO =~ ^.*(\.d)\/$ ]]; then
+       cd $PATH_TO_REPOS/$NAME_OF_REPO
+     else
+     cd $PATH_TO_REPOS/$NAME_OF_REPO
+     fi
+   else
+     echo "$PATH_TO_REPOS/$NAME_OF_REPO was not found"
+   fi
+  }
+
+  usage() {
+      local showOptions=${1}
+      echo -e "${GREEN}Usage:${NORMAL} r0 [-l| --list] [-h| --help] <repo-name>\n"
+
+      [[ -n $showOptions ]] && (
+        echo -e "Options:"
+        echo -e "-l, --list List Available Repositories"
+        echo -e "-L, --list-all List Available Repositories including repos in grouped folders"
+        # echo -e "-l, --list <grouped-directory> List Available Repositories inside grouped directory"
+        echo -e "-h, --help Prints usage"
+      )
+    }
+
+  reset_state_variables() {
+    unset NAME_OF_REPO
+    unset SHOW_LIST
+    unset INCLUDE_GROUPED_FOLDERS
+    unset $SHOW
+  }
+  handle_no_args() {
+    echo -e "no args passed to fn\n"
+    usage
+    return 0
+  }
+
+  local VALID_ARGS=$(getopt -o lLh --long list,list-all,help: -- "$@")
+
+  eval set -- "$VALID_ARGS"
+  while [ : ]; do
+    case "$1" in
+      -l | --list)
+        SHOW_LIST="true"
+        shift
+        ;;
+      -L | --list-all)
+        SHOW_LIST="true"
+        INCLUDE_GROUPED_FOLDERS="true"
+        shift
+        ;;
+      -h | --help)
+        usage "showOptions"
+        return 0
+        ;;
+      --)
+        NAME_OF_REPO=$2
+        shift;
+        break
+        ;;
+    esac
+  done
+  shift $((OPTIND-1))
+
+  if [[ -n $SHOW_LIST ]]; then
+    list
+  elif [[ -n $NAME_OF_REPO ]]; then
+    is_valid $NAME_OF_REPO
+  else
+    handle_no_args
+  fi
+
+  reset_state_variables
+}
 
