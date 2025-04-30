@@ -5,6 +5,23 @@
 ## usage: Change directory to one of the available repositories on local machine.
 ####
 
+_r0_comp() {
+  local cur prev opts
+  local PATH_TO_REPOS="$HOME/Repos"
+
+  COMPREPLY=()
+
+  cur="${COMP_WORDS[COMP_CWORD]}";
+  prev="${COMP_WORDS[COMP_CWORD - 1]}";
+  opts="$(ls $PATH_TO_REPOS)"
+
+  COMPREPLY=($(compgen -W "${opts}" -- "${cur}"))
+  return 0
+
+}
+
+complete -F _r0_comp r0
+
 r0() {
   local PATH_TO_REPOS="$HOME/Repos"
   local NAME_OF_REPO=""
@@ -12,6 +29,7 @@ r0() {
   local GREEN="\e[32m";
   local RED="\e[31m";
   local NORMAL="\e[0m";
+  echo "hello ${testing}"
 
   is_valid() {
     [[ $NAME_OF_REPO =~ ^[a-zA-Z0-9_-]+$ ]] && found_repo $NAME_OF_REPO
@@ -38,11 +56,8 @@ r0() {
     }
 
   handle_no_args() {
-    echo -e "${GREEN}Available Repositories:${NORMAL}\n"
-    list;
-    echo -e "\n"
-
-    usage;
+    echo "no ags"
+    return 0
   }
 
   local VALID_ARGS=$(getopt -o lh: --long list,help: -- "$@")
@@ -56,11 +71,11 @@ r0() {
         return 1
         ;;
       -h | --help)
-        echo "testing"
         shift
         return 1
         ;;
       --)
+        echo $testing || "testing is unset"
         NAME_OF_REPO=$2
         shift;
         break
