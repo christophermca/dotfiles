@@ -5,9 +5,16 @@
 ## usage: Change directory to one of the available repositories on local machine.
 ####
 
+# Single source of truth for variable.
+_configure_path() {
+  local PATH_TO_REPOS="$HOME/Repos"
+  echo $PATH_TO_REPOS
+  return 0
+}
+
 _r0_comp() {
   local cur prev opts
-  local PATH_TO_REPOS="$HOME/Repos"
+  local PATH_TO_REPOS=$(_configure_path)
 
   COMPREPLY=()
 
@@ -23,13 +30,12 @@ _r0_comp() {
 complete -F _r0_comp r0
 
 r0() {
-  local PATH_TO_REPOS="$HOME/Repos"
+  local PATH_TO_REPOS=$(_configure_path)
   local NAME_OF_REPO=""
 
   local GREEN="\e[32m";
   local RED="\e[31m";
   local NORMAL="\e[0m";
-  echo "hello ${testing}"
 
   is_valid() {
     [[ $NAME_OF_REPO =~ ^[a-zA-Z0-9_-]+$ ]] && found_repo $NAME_OF_REPO
@@ -56,11 +62,11 @@ r0() {
     }
 
   handle_no_args() {
-    echo "no ags"
+    echo "no args passed to fn"
     return 0
   }
 
-  local VALID_ARGS=$(getopt -o lh: --long list,help: -- "$@")
+  local VALID_ARGS=$(getopt -o lh --long list,help: -- "$@")
 
   eval set -- "$VALID_ARGS"
   while [ : ]; do
@@ -71,11 +77,11 @@ r0() {
         return 1
         ;;
       -h | --help)
+        usage
         shift
         return 1
         ;;
       --)
-        echo $testing || "testing is unset"
         NAME_OF_REPO=$2
         shift;
         break
