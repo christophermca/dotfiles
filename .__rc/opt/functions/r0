@@ -61,23 +61,29 @@ r0() {
   # Prints all available repos in r0__PATH_TO_REPOS
   ###
   list() {
-    handle_list() {
+    generate_grouped_list() {
       for g in $LIST_OF_GROUPED_DIRECTORIES; do
         local dir_name=$g
-        echo $dir_name | grep -Po "(?<=\/)[a-zA-Z0-9_-]+\.d$"
+        group_name=$(echo $dir_name | grep -Po '(?<=\/)[a-zA-Z0-9_-]+\.d$')
+        echo -e "/${BOLD}${BOLD}$group_name${NORMAL}"
+        [[ -n $(ls $dir_name) ]] && ls $dir_name || echo -e "${RED}...empty${NORMAL}"
+        echo -e "\n"
       done
     }
 
     decorate_message() {
       local grouped_directory="${1:-none}"
 
+      # TEST $INCLUDE_GROUPED_FOLDERS isn't null
       if [[ -n $INCLUDE_GROUPED_FOLDERS ]]; then
         echo -e "___ Grouped Directories ___"
         local LIST_OF_GROUPED_DIRECTORIES=$(ls -d $PATH_TO_REPOS/*.d)
-        handle_list
-        echo -e "\n___ All other repositories ___"
-        ls $PATH_TO_REPOS -I *.d
+        generate_grouped_list
+
+        echo -e "___ Evrything else ___"
+        ls -I *.d $PATH_TO_REPOS
       else
+        # List directories found in $PATH_TO_REPOS
         ls $PATH_TO_REPOS
       fi
 
@@ -105,7 +111,6 @@ r0() {
         echo -e "Options:"
         echo -e "-l, --list List Available Repositories"
         echo -e "-L, --list-all List Available Repositories including repos in grouped folders"
-        # echo -e "-l, --list <grouped-directory> List Available Repositories inside grouped directory"
         echo -e "-h, --help Prints usage"
       )
     }
