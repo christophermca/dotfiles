@@ -10,14 +10,18 @@ simplify using your rcfiles across devices.
  **Binaries**
 - `sourceShellScripts` ....  used to read functions from functions folder
 
-### Usage
+## Usage
 source `.__rc/.bashrc` inside of your `.bash_profile` or `.bashrc`
+
+### Example
+- `bash_profile` will source `.bashrc`
+- `bashrc`, acting as a wrapper, will source `.__rc/bashrc`
 
 ```bash
 #!/bin/bash
 # file: ~/.bash_profile/
 
-# In this example we chose to call bashrc from the bash profile
+# This source `.bashrc` from `.bash_profile`
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
 ```
