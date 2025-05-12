@@ -1,14 +1,16 @@
-# collection of configurations
+# Project __rc
+simplify using your rcfiles across devices.
 
+## Exports
+**collections**
 - functions
 - aliases
 - ps_config
 
-# exported binaries
+ **Binaries**
+- `sourceShellScripts` ....  used to read functions from functions folder
 
-`sourceShellScripts` ....  used to read functions from functions folder
-
-## Usage
+### Usage
 source `.__rc/.bashrc` inside of your `.bash_profile` or `.bashrc`
 
 ```bash
