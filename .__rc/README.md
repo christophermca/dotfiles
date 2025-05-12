@@ -1,4 +1,4 @@
-# Project __rc
+# The __rc project
 simplify using your rcfiles across devices.
 
 ## Exports
