@@ -1,5 +1,9 @@
-# The __rc project
-simplify using your rcfiles across devices.
+# Project __rc
+_Simplify maintaining your runtime configurations and setup across devices._
+
+`__rc` uses a modular approach to
+maintianing and using your .RC files. When I was a contractor I frequently had
+to setup a new computer porting over my helper functions I created.
 
 ## Exports
 **collections**
