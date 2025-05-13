@@ -107,6 +107,6 @@
 [submodule "/home/christophermca/.vim/pack/plugins/start/rust.vim"]
 	path = /home/christophermca/.vim/pack/plugins/start/rust.vim
 	url  = https://github.com/rust-lang/rust.vim
-[submodule "/home/christophermca/.__rc"]
-	path = /home/christophermca/.__rc
-	url = https://github.com/christophermca/__rc_project
+[submodule "__rc"]
+	path = .__rc
+	url = git@github.com:christophermca/__rc_project.git
