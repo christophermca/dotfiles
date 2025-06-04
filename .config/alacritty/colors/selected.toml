@@ -1,2 +1,4 @@
-day = "google-light"
+# key-value pairs used to configure alacritty colors.
+day = "pencil-light"
+# night =  "your-theme-name"  # if not set will default to "Tomorrow" theme
 
