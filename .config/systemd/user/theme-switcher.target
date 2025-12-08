@@ -1,7 +1,9 @@
 [Unit]
 Description=Theme-switcher target
 Wants=theme-switcher.service update-gtk-theme.service
-After=theme-switcher.service update-gtk-theme.service
+; target units will complement all configured dependencies of type Wants= or Requires=
+; with dependencies of type After=.
+; After=theme-switcher.service update-gtk-theme.service
 
 [Install]
 WantedBy=theme-switcher.timer
