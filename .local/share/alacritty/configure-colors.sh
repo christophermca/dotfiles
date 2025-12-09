@@ -4,16 +4,15 @@ configure_alacritty() {
   local themeName;
   local dayNight;
 
-  local current_dir=$(dirname "${BASH_SOURCE[0]}")
   local alacritty_dir=$HOME/.config/alacritty
   local configfile=${alacritty_dir}/alacritty.toml
 
-  local day_theme=$(cat ${current_dir}/selected.toml | grep -oP '(?<=day = ")[a-z-]+')
-  local night_theme=$(cat ${current_dir}/selected.toml | grep -oP '(?<=night = ")[a-z-]+')
+  local day_theme=$(cat ${alacritty_dir}/themes/selected.toml | grep -oP '(?<=day = ")[a-z-]+')
+  local night_theme=$(cat ${alacritty_dir}/themes/selected.toml | grep -oP '(?<=night = ")[a-z-]+')
 
 
   # Reset to base configuration
-  cat ${current_dir}/base.toml > $configfile
+  cat ${alacritty_dir}/base.toml > $configfile
 
 
   # Sets the mood ;)
@@ -33,7 +32,7 @@ configure_alacritty() {
   esac
 
   if [ $themeName ];  then
-    cat ${alacritty_dir}/colors/themes/${themeName}.toml >> $configfile
+    cat ${alacritty_dir}/themes/src/${themeName}.toml >> $configfile
   fi
 
 }
