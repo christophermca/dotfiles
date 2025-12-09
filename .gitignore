@@ -19,6 +19,11 @@
 !.tmux.conf
 !.inputrc
 !.workrc
+
+# ignores user systemd units
 !.config/systemd/user/*
+
+# ignores great-matcha project files
+!.config/alacritty/alacritty.toml
 !.config/alacritty/**/*
 !.local/theme-switcher/*
