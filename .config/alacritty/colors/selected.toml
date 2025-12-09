@@ -1,4 +1,4 @@
 # key-value pairs used to configure alacritty colors.
 day = "pencil-light"
-# night =  "your-theme-name"  # if not set will default to "Tomorrow" theme
+# night =  "your-theme-name"  #if unset, Alacritty will use its default theme "tomorrow-night"
 
