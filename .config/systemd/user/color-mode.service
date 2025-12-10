@@ -1,14 +1,12 @@
 [Unit]
-Description="Monitor color mode"
+Description="Toggle themes (day, night) for Alacritty mode"
 Wants=display-manager.service
-After=graphical-session.target theme-switcher.service
+After=graphical-session.target
 
 [Service]
 Type=exec
 WorkingDirectory=%h
-EnvironmentFile=%h/.config/theme-switcher/environment.env
-; ExecStartPre=%h/.local/share/alacritty/configure-colors.sh
-ExecStart=%h/.local/theme-switcher/bin/toggle-mode-on-signal.sh
+ExecStart=%h/.local/alacritty/bin/toggle-mode-on-signal.sh
 
 [Install]
 WantedBy=default.target
