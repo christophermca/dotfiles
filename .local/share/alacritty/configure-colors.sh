@@ -1,38 +1,47 @@
 #!/bin/bash
 
+# what if we switched this to append an import statement that includes a link to
+# the theme.
+
+
 configure_alacritty() {
   local themeName;
   local dayNight;
 
-  local alacritty_dir=$HOME/.config/alacritty
-  local configfile=${alacritty_dir}/alacritty.toml
+  local alacrittyDir=$HOME/.config/alacritty
+  local configfile=${alacrittyDir}/alacritty.toml
 
-  local day_theme=$(cat ${alacritty_dir}/themes/selected.toml | grep -oP '(?<=day = ")[a-z-]+')
-  local night_theme=$(cat ${alacritty_dir}/themes/selected.toml | grep -oP '(?<=night = ")[a-z-]+')
+  local dayTheme=$(cat ${alacrittyDir}/themes/selected.toml | grep -oP '(?<=day = ")[a-z-]+')
+  local nightTheme=$(cat ${alacrittyDir}/themes/selected.toml | grep -oP '(?<=night = ")[a-z-]+')
 
 
   # Reset to base configuration
-  cat ${alacritty_dir}/base.toml > $configfile
+  if [[ -f ${alacrittyDir}/src/base.toml ]]; then
+    cat ${alacrittyDir}/src/base.toml > $configfile
+  elif [[ -f ${alacrittyDir}/.base-config.toml ]]; then
+    cat ${alacrittyDir}/.base-config.toml  > $configfile
+  fi
 
 
-  # Sets the mood ;)
-  # nan na-nan ba-ban-na nan nan-na nan
+  # Set the mood ;)
+  # nan na-nan -- ba nan-na nan -- nan-na nan
   if (( $# == 1 )); then
     dayNight=$1
   fi
 
   case ${dayNight} in
     "night")
-      # if not set, alacritty will use its default theme :: tomorrow-night
-      themeName=$night_theme
+      # if not set, alacritty will use its default theme :: Tomorrow-night mixed
+      # with Tomorrow-night-bright
+      themeName=$nightTheme
       ;;
     "day")
-      themeName=$day_theme
+      themeName=$dayTheme
       ;;
   esac
 
   if [ $themeName ];  then
-    cat ${alacritty_dir}/themes/src/${themeName}.toml >> $configfile
+    cat ${alacrittyDir}/themes/themes/${themeName}.toml >> $configfile
   fi
 
 }

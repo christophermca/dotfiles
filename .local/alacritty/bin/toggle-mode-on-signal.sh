@@ -15,15 +15,15 @@ member="SettingChanged"
 
 function processOutput() {
     awk '
-    $2 ~ "color-scheme" {
-    next
-    }
+    $2 ~ "color-scheme" { next }
     $1 ~ "variant" && $2 ~ "string" {
       if ( $3 ~ "prefer-light" || $3 ~ "default" ) {
+       echo "updating mode $3"
        system("configure_alacritty day")
-     } else if ( $3 ~ "prefer-dark" ) {
-      system("configure_alacritty night")
-     }
+      } else if ( $3 ~ "prefer-dark" ) {
+       echo "updating mode $3"
+       system("configure_alacritty night")
+      }
   }'
 }
 
