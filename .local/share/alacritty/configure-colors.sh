@@ -12,7 +12,11 @@ configure_alacritty() {
 
 
   # Reset to base configuration
-  cat ${alacritty_dir}/base.toml > $configfile
+  if [[ -f ${alacritty_dir}/src/base.toml ]]; then
+    cat ${alacritty_dir}/src/base.toml > $configfile
+  elif [[ -f ${alacritty_dir}/.base-config.toml ]]; then
+    cat ${alacritty_dir}/.base-config.toml  > $configfile
+  fi
 
 
   # Sets the mood ;)
@@ -32,7 +36,7 @@ configure_alacritty() {
   esac
 
   if [ $themeName ];  then
-    cat ${alacritty_dir}/themes/src/${themeName}.toml >> $configfile
+    cat ${alacritty_dir}/themes/collections/${themeName}.toml >> $configfile
   fi
 
 }
