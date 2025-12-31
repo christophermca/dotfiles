@@ -1,5 +1,6 @@
 [general]
 live_config_reload = true
+import = ["themes/selected.toml"]
 
 [cursor]
 blink_interval = 750

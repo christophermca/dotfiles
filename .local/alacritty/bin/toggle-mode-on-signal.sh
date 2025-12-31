@@ -2,11 +2,11 @@
 
 ###
 # Listens for Dbus signal when user changes color-mode
-# Updates Alacritty with configure-colors
+# Updates Alacritty with alacritty-use-theme
 ###
 
-if [[ -f $HOME/.local/share/alacritty/configure-colors.sh ]]; then
- source $HOME/.local/share/alacritty/configure-colors.sh
+if [[ -f $HOME/.local/share/alacritty/select-theme.sh ]]; then
+ source $HOME/.local/share/alacritty/select-theme.sh
 fi
 
 interface="org.freedesktop.portal.Settings"
@@ -18,11 +18,9 @@ function processOutput() {
     $2 ~ "color-scheme" { next }
     $1 ~ "variant" && $2 ~ "string" {
       if ( $3 ~ "prefer-light" || $3 ~ "default" ) {
-       echo "updating mode $3"
-       system("configure_alacritty day")
+       system("alacritty-use-theme day")
       } else if ( $3 ~ "prefer-dark" ) {
-       echo "updating mode $3"
-       system("configure_alacritty night")
+       system("alacritty-use-theme night")
       }
   }'
 }
