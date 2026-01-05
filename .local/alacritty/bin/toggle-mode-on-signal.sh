@@ -5,13 +5,13 @@
 # Updates Alacritty with alacritty-use-theme
 ###
 
-if [[ -f $HOME/.local/share/alacritty/select-theme.sh ]]; then
- source $HOME/.local/share/alacritty/select-theme.sh
-fi
-
 interface="org.freedesktop.portal.Settings"
 type="signal"
 member="SettingChanged"
+
+if [[ -f /usr/local/bin/alacritty/use-theme.sh ]]; then
+  source /usr/local/bin/alacritty/use-theme.sh
+fi
 
 function processOutput() {
     awk '
