@@ -9,8 +9,8 @@ interface="org.freedesktop.portal.Settings"
 type="signal"
 member="SettingChanged"
 
-if [[ -f /usr/local/bin/alacritty/use-theme.sh ]]; then
-  source /usr/local/bin/alacritty/use-theme.sh
+if [[ -f /usr/bin/alacritty-use-theme/use-theme.sh ]]; then
+  source /usr/bin/alacritty-use-theme/use-theme.sh
 fi
 
 function processOutput() {
